@@ -89,7 +89,7 @@ service qseecomd /system/bin/qseecomd
 # TODO: This MUST be disabled not use 'mpdecision' in LGE platform.
 service mpdecision /system/bin/mpdecision --avg_comp
    class main
-   user root
+   group root readproc
    disabled
 
 service thermal-engine /system/vendor/bin/thermal-engine
