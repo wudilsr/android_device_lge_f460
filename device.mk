@@ -36,7 +36,8 @@ PRODUCT_PACKAGES += \
     $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
     $(LOCAL_PATH)/rootdir/init.tiger6_core.rc:root/init.tiger6_core.rc \
     $(LOCAL_PATH)/rootdir/init.tiger6_product.rc:root/init.tiger6_product.rc \
-    $(LOCAL_PATH)/rootdir/init.tiger6.rc:root/init.tiger6.rc \ 
+    $(LOCAL_PATH)/rootdir/init.tiger6.rc:root/init.tiger6.rc \
+    $(LOCAL_PATH)/rootdir/ueventd.tiger6.rc:root/ueventd.tiger6.rc
 
 # Add WiFi Firmware
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4339/device-bcm.mk)
@@ -76,7 +77,6 @@ PRODUCT_PACKAGES += \
     gralloc.apq8084 \
     hwcomposer.apq8084 \
     memtrack.apq8084 \
-	libc2dcolorconvert \
     liboverlay
 	
 # Audio
