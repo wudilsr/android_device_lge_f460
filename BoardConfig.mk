@@ -1,5 +1,5 @@
 LOCAL_PATH := device/lge/f460
-
+BOARD_VENDOR := lge
 
 # Soc platform
 TARGET_BOARD_PLATFORM := apq8084
@@ -161,3 +161,6 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
+
+# inherit from the proprietary version
+-include vendor/lge/f460/BoardConfigVendor.mk

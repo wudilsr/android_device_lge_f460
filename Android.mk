@@ -23,6 +23,6 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-ifeq ($(TARGET_DEVICE), cm_f460)
+ifneq ($(filter f460, $(TARGET_DEVICE)),)
     include $(all-subdir-makefiles)
 endif                                                                              
