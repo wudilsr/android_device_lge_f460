@@ -30,6 +30,7 @@ PRODUCT_PACKAGES += \
     $(LOCAL_PATH)/init.lge.usb.rc:root/init.lge.usb.rc \
     $(LOCAL_PATH)/init.lge.usb.sh:root/init.lge.usb.sh \
     $(LOCAL_PATH)/init.qcom.modem_links.sh:root/init.qcom.modem_links.sh \
+    $(LOCAL_PATH)/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh \
     $(LOCAL_PATH)/init.qcom.rc:root/init.qcom.rc \
     $(LOCAL_PATH)/init.qcom.sh:root/init.qcom.sh \
     $(LOCAL_PATH)/init.qcom.ssr.sh:root/init.qcom.ssr.sh \
