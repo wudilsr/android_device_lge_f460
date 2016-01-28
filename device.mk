@@ -73,7 +73,6 @@ PRODUCT_COPY_FILES += \
 
 # Display
 PRODUCT_PACKAGES += \
-	#copybit.apq8084 \
     gralloc.apq8084 \
     hwcomposer.apq8084 \
     memtrack.apq8084 \
@@ -102,10 +101,10 @@ PRODUCT_PACKAGES += \
     libqcompostprocbundle \
     libqcomvoiceprocessing \
     libqcomvoiceprocessingdescriptors \
-	tinycap \
-	tinyloop \
-	tinymix \
-	tinyplay
+    tinycap \
+    tinyloop \
+    tinymix \
+    tinyplay
 
 # Sensors
 PRODUCT_COPY_FILES += \
@@ -207,8 +206,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
 	libnfc_ndef \
+	Tag
 	#libnfc-nxp-nci \
-    Tag
+    
 
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
