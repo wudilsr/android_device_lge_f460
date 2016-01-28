@@ -1,3 +1,4 @@
+LOCAL_PATH := device/lge/f460
 $(call inherit-product-if-exists, vendor/lge/f460/device-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
@@ -21,23 +22,24 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 
 #init files
 PRODUCT_PACKAGES += \
-    fstab.tiger6 \
-    $(LOCAL_PATH)/rootdir/init.apq8084_core.rc:root/init.apq8084_core.rc \
-    $(LOCAL_PATH)/rootdir/init.apq8084.sensor.sh:root/init.apq8084.sensor.sh \
-    $(LOCAL_PATH)/rootdir/init.lge.bt_vendor.rc:root/init.lge.bt_vendor.rc \
-    $(LOCAL_PATH)/rootdir/init.lge.power.rc:root/init.lge.power.rc \
-    $(LOCAL_PATH)/rootdir/init.lge.usb.rc:root/init.lge.usb.rc \
-    $(LOCAL_PATH)/rootdir/init.lge.usb.sh:root/init.lge.usb.sh \
-    $(LOCAL_PATH)/rootdir/init.qcom.modem_links.sh:root/init.qcom.modem_links.sh \
-    $(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
-    $(LOCAL_PATH)/rootdir/init.qcom.sh:root/init.qcom.sh \
-    $(LOCAL_PATH)/rootdir/init.qcom.ssr.sh:root/init.qcom.ssr.sh \
-    $(LOCAL_PATH)/rootdir/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
-    $(LOCAL_PATH)/rootdir/init.target.rc:root/init.target.rc \
-    $(LOCAL_PATH)/rootdir/init.tiger6_core.rc:root/init.tiger6_core.rc \
-    $(LOCAL_PATH)/rootdir/init.tiger6_product.rc:root/init.tiger6_product.rc \
-    $(LOCAL_PATH)/rootdir/init.tiger6.rc:root/init.tiger6.rc \
-    $(LOCAL_PATH)/rootdir/ueventd.tiger6.rc:root/ueventd.tiger6.rc
+    $(LOCAL_PATH)/fstab.tiger6:root/fstab.tiger6 \
+    $(LOCAL_PATH)/init.apq8084_core.rc:root/init.apq8084_core.rc \
+    $(LOCAL_PATH)/init.apq8084.sensor.sh:root/init.apq8084.sensor.sh \
+    $(LOCAL_PATH)/init.lge.bt_vendor.rc:root/init.lge.bt_vendor.rc \
+    $(LOCAL_PATH)/init.lge.power.rc:root/init.lge.power.rc \
+    $(LOCAL_PATH)/init.lge.usb.rc:root/init.lge.usb.rc \
+    $(LOCAL_PATH)/init.lge.usb.sh:root/init.lge.usb.sh \
+    $(LOCAL_PATH)/init.qcom.modem_links.sh:root/init.qcom.modem_links.sh \
+    $(LOCAL_PATH)/init.qcom.rc:root/init.qcom.rc \
+    $(LOCAL_PATH)/init.qcom.sh:root/init.qcom.sh \
+    $(LOCAL_PATH)/init.qcom.ssr.sh:root/init.qcom.ssr.sh \
+    $(LOCAL_PATH)/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
+    $(LOCAL_PATH)/init.target.rc:root/init.target.rc \
+    $(LOCAL_PATH)/init.tiger6_core.rc:root/init.tiger6_core.rc \
+    $(LOCAL_PATH)/init.tiger6_product.rc:root/init.tiger6_product.rc \
+    $(LOCAL_PATH)/init.tiger6.rc:root/init.tiger6.rc \
+    $(LOCAL_PATH)/ueventd.tiger6.rc:root/ueventd.tiger6.rc
+
 
 # Add WiFi Firmware
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4339/device-bcm.mk)
