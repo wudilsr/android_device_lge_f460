@@ -6,7 +6,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # System properties
-# -include $(LOCAL_PATH)/system_prop.mk
+#-include $(LOCAL_PATH)/system_prop.mk
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi 560dpi xxxhdpi
@@ -16,34 +16,31 @@ PRODUCT_AAPT_PREF_CONFIG := 560dpi
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1440
 
-$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
 #init files
 PRODUCT_PACKAGES += \
-    $(LOCAL_PATH)/fstab.tiger6:root/fstab.tiger6 \
-    $(LOCAL_PATH)/init.apq8084_core.rc:root/init.apq8084_core.rc \
-    $(LOCAL_PATH)/init.apq8084.sensor.sh:root/init.apq8084.sensor.sh \
-    $(LOCAL_PATH)/init.lge.bt_vendor.rc:root/init.lge.bt_vendor.rc \
-    $(LOCAL_PATH)/init.lge.power.rc:root/init.lge.power.rc \
-    $(LOCAL_PATH)/init.lge.usb.rc:root/init.lge.usb.rc \
-    $(LOCAL_PATH)/init.lge.usb.sh:root/init.lge.usb.sh \
-    $(LOCAL_PATH)/init.qcom.modem_links.sh:root/init.qcom.modem_links.sh \
-    $(LOCAL_PATH)/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh \
-    $(LOCAL_PATH)/init.qcom.rc:root/init.qcom.rc \
-    $(LOCAL_PATH)/init.qcom.sh:root/init.qcom.sh \
-    $(LOCAL_PATH)/init.qcom.ssr.sh:root/init.qcom.ssr.sh \
-    $(LOCAL_PATH)/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
-    $(LOCAL_PATH)/init.target.rc:root/init.target.rc \
-    $(LOCAL_PATH)/init.tiger6_core.rc:root/init.tiger6_core.rc \
-    $(LOCAL_PATH)/init.tiger6_product.rc:root/init.tiger6_product.rc \
-    $(LOCAL_PATH)/init.tiger6.rc:root/init.tiger6.rc \
-    $(LOCAL_PATH)/ueventd.tiger6.rc:root/ueventd.tiger6.rc
+    device/lge/f460/fstab.tiger6:$(TARGET_ROOT_OUT)/fstab.tiger6 \
+    device/lge/f460/init.apq8084_core.rc:$(TARGET_ROOT_OUT)/init.apq8084_core.rc \
+    device/lge/f460/init.apq8084.sensor.sh:$(TARGET_ROOT_OUT)/init.apq8084.sensor.sh \
+    device/lge/f460/init.lge.bt_vendor.rc:$(TARGET_ROOT_OUT)/init.lge.bt_vendor.rc \
+    device/lge/f460/init.lge.power.rc:$(TARGET_ROOT_OUT)/init.lge.power.rc \
+    device/lge/f460/init.lge.usb.rc:$(TARGET_ROOT_OUT)/init.lge.usb.rc \
+    device/lge/f460/init.lge.usb.sh:$(TARGET_ROOT_OUT)/init.lge.usb.sh \
+    device/lge/f460/init.qcom.modem_links.sh:$(TARGET_ROOT_OUT)/init.qcom.modem_links.sh \
+    device/lge/f460/init.qcom.early_boot.sh:$(TARGET_ROOT_OUT)/init.qcom.early_boot.sh \
+    device/lge/f460/init.qcom.rc:$(TARGET_ROOT_OUT)/init.qcom.rc \
+    device/lge/f460/init.qcom.sh:$(TARGET_ROOT_OUT)/init.qcom.sh \
+    device/lge/f460/init.qcom.ssr.sh:$(TARGET_ROOT_OUT)/init.qcom.ssr.sh \
+    device/lge/f460/init.qcom.syspart_fixup.sh:$(TARGET_ROOT_OUT)/init.qcom.syspart_fixup.sh \
+    device/lge/f460/init.target.rc:$(TARGET_ROOT_OUT)/init.target.rc \
+    device/lge/f460/init.tiger6_core.rc:$(TARGET_ROOT_OUT)/init.tiger6_core.rc \
+    device/lge/f460/init.tiger6_product.rc:$(TARGET_ROOT_OUT)/init.tiger6_product.rc \
+    device/lge/f460/init.tiger6.rc:$(TARGET_ROOT_OUT)/init.tiger6.rc \
+    device/lge/f460/ueventd.tiger6.rc:$(TARGET_ROOT_OUT)/ueventd.tiger6.rc
 
-
-# Add WiFi Firmware
-$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4339/device-bcm.mk)
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -58,6 +55,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml \
     frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml \
     frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
     frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
@@ -77,19 +75,19 @@ PRODUCT_COPY_FILES += \
 
 # Display
 PRODUCT_PACKAGES += \
+	copybit.apq8084 \
     gralloc.apq8084 \
     hwcomposer.apq8084 \
     memtrack.apq8084 \
-    liboverlay
 	
 # Audio
-PRODUCT_PACKAGES += \
-    audiod \
-    audio.a2dp.default \
-    audio.primary.apq8084 \
-    audio.r_submix.default \
-    audio.usb.default \
-    audio_policy.apq8084 
+#PRODUCT_PACKAGES += \
+    #audiod \
+    #audio.a2dp.default \
+    #audio.primary.apq8084 \
+    #audio.r_submix.default \
+    #audio.usb.default \
+    #audio_policy.apq8084  \
 	
 # Audio configuration file
 PRODUCT_COPY_FILES += \
@@ -98,16 +96,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/mixer_paths.xml:system/etc/mixer_paths.xml 
 
 # Audio effects
-PRODUCT_PACKAGES += \
-    libaudio-resampler \
-    libqcomvisualizer \
-    libqcompostprocbundle \
-    libqcomvoiceprocessing \
-    libqcomvoiceprocessingdescriptors \
-    tinycap \
-    tinyloop \
-    tinymix \
-    tinyplay
+#PRODUCT_PACKAGES += \
+    #libaudio-resampler \
+    #libqcompostprocbundle \
+    #libqcomvisualizer \
+    #libqcomvoiceprocessing  \
+    #tinycap \
+    #tinyloop \
+    #tinymix \
+    #tinyplay
 
 # Sensors
 PRODUCT_COPY_FILES += \
@@ -123,24 +120,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
 
-# WiFi cal NVRAM file
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
-
-	  
-# Wifi
-PRODUCT_PACKAGES += \
-    libwpa_client \
-    hostapd \
-    dhcpcd.conf \
-    wpa_supplicant \
-    wpa_supplicant.conf
-
-
-# MIDI feature
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml
-
 # misc configuration files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/flp.conf:system/etc/flp.conf \
@@ -149,45 +128,41 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/xtwifi.conf:system/etc/xtwifi.conf \
     $(LOCAL_PATH)/configs/lowi.conf:system/etc/lowi.conf \
     $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf
-	
-# CONNECTIVITY
-PRODUCT_PACKAGES += \
-	libcnefeatureconfig
-	
+
 	
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media/media_profiles.xml:system/etc/media_profiles.xml \
-	$(LOCAL_PATH)/configs/media/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
-    #frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
-
-# Media
+    
+# OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libdivxdrmdecrypt \
     libdashplayer \
+    libdivxdrmdecrypt \
+    libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
+    libOmxSwVencMpeg4 \
     libOmxVdec \
+    libOmxVdecHevc \
     libOmxVenc \
+    libOmxVidcCommon \
     libqcmediaplayer \
-    libstagefrighthw \
-    mm-venc-omx-test720p \
-    mm-video-driver-test \
-    mm-video-encdrv-test \
     qcmediaplayer
-	
-PRODUCT_BOOT_JARS += qcmediaplayer
+
+PRODUCT_BOOT_JARS += \
+    qcmediaplayer
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    #bdAddrLoader 
+    bdAddrLoader 
 	
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hcidump.sh:system/etc/hcidump.sh \
@@ -224,11 +199,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     power.apq8084
 
-# Camera
-PRODUCT_PACKAGES += \
-    camera.apq8084 \
-    libxml2
-
 # DATA_OS
 PRODUCT_PACKAGES += \
 	librmnetctl \
@@ -251,6 +221,3 @@ PRODUCT_PACKAGES += \
 	
 # tcmiface for tcm support
 PRODUCT_PACKAGES += tcmiface
-
-# temp
-SKIP_BOOT_JARS_CHECK := true

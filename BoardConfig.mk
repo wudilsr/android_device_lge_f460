@@ -4,7 +4,7 @@ BOARD_VENDOR := lge
 # Soc platform
 TARGET_BOARD_PLATFORM := apq8084
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno420
-# USE_CLANG_PLATFORM_BUILD := true
+USE_CLANG_PLATFORM_BUILD := true
 
 # Architecture
 TARGET_ARCH := arm
@@ -16,6 +16,7 @@ TARGET_CPU_VARIANT := krait
 #TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 # TARGET_CPU_SMP := true
 # ARCH_ARM_HAVE_TLS_REGISTER := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 
 # Qcom OPTIMIZATION
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
@@ -60,10 +61,7 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/fstab.tiger6
 
 # Audio
-BOARD_USES_ALSA_AUDIO := true
-# BOARD_USES_GENERIC_AUDIO := true
-AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
-USE_CUSTOM_AUDIO_POLICY := 1
+BOARD_USES_GENERIC_AUDIO := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -72,39 +70,24 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 # BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR :=
 
 # Camera
-USE_DEVICE_SPECIFIC_CAMERA := true
-COMMON_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
-COMMON_GLOBAL_CFLAGS += -DLG_CAMERA_HARDWARE
-COMMON_GLOBAL_CFLAGS += -DPROPERTY_PERMS_APPEND=' \
-    { "persist.data.sensor_name", AID_CAMERA, 0 }, \
-    { "camera.4k2k.enable", AID_MEDIA, 0 }, \
-    { "persist.data.rear.minfps", AID_MEDIA, 0 }, \
-    { "persist.data.front.minfps", AID_MEDIA, 0 }, \
-    '
-
+USE_CAMERA_STUB := true
 
 # CMHW
 # BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
 # TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap_to_wake"
 
-# Enables Adreno RS driver
-#OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-
-
 # Disable HW based full disk encryption
 TARGET_HW_DISK_ENCRYPTION := false
 
 # Display
-BOARD_EGL_CFG := device/lge/f460/configs/egl.cfg
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
-# TARGET_USES_C2D_COMPOSITION := true
-# TARGET_USES_ION := true
+TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_ION := true
 #TARGET_USES_NEW_ION_API :=true
 # NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 USE_OPENGL_RENDERER := true
 # TARGET_USES_OVERLAY := true
-TARGET_USES_QCOM_BSP := true
 HAVE_ADRENO_SOURCE := false
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 
@@ -147,9 +130,7 @@ PRODUCT_PACKAGES += \
     libtime_genoff
     
 # Qualcomm support
-#TARGET_QCOM_DISPLAY_VARIANT := caf
 BOARD_USES_QCOM_HARDWARE := true
-
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
@@ -162,6 +143,12 @@ ifeq ($(HOST_OS),linux)
     endif
   endif
 endif
+
+# Fonts
+EXTENDED_FONT_FOOTPRINT := true
+
+# Vendor init
+TARGET_INIT_VENDOR_LIB := libinit_msm
 
 # inherit from the proprietary version
 -include vendor/lge/f460/BoardConfigVendor.mk
