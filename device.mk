@@ -16,31 +16,51 @@ PRODUCT_AAPT_PREF_CONFIG := 560dpi
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1440
 
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 #init files
-PRODUCT_PACKAGES += \
-    device/lge/f460/fstab.tiger6:$(TARGET_ROOT_OUT)/fstab.tiger6 \
-    device/lge/f460/init.apq8084_core.rc:$(TARGET_ROOT_OUT)/init.apq8084_core.rc \
-    device/lge/f460/init.apq8084.sensor.sh:$(TARGET_ROOT_OUT)/init.apq8084.sensor.sh \
-    device/lge/f460/init.lge.bt_vendor.rc:$(TARGET_ROOT_OUT)/init.lge.bt_vendor.rc \
-    device/lge/f460/init.lge.power.rc:$(TARGET_ROOT_OUT)/init.lge.power.rc \
-    device/lge/f460/init.lge.usb.rc:$(TARGET_ROOT_OUT)/init.lge.usb.rc \
-    device/lge/f460/init.lge.usb.sh:$(TARGET_ROOT_OUT)/init.lge.usb.sh \
-    device/lge/f460/init.qcom.modem_links.sh:$(TARGET_ROOT_OUT)/init.qcom.modem_links.sh \
-    device/lge/f460/init.qcom.early_boot.sh:$(TARGET_ROOT_OUT)/init.qcom.early_boot.sh \
-    device/lge/f460/init.qcom.rc:$(TARGET_ROOT_OUT)/init.qcom.rc \
-    device/lge/f460/init.qcom.sh:$(TARGET_ROOT_OUT)/init.qcom.sh \
-    device/lge/f460/init.qcom.ssr.sh:$(TARGET_ROOT_OUT)/init.qcom.ssr.sh \
-    device/lge/f460/init.qcom.syspart_fixup.sh:$(TARGET_ROOT_OUT)/init.qcom.syspart_fixup.sh \
-    device/lge/f460/init.target.rc:$(TARGET_ROOT_OUT)/init.target.rc \
-    device/lge/f460/init.tiger6_core.rc:$(TARGET_ROOT_OUT)/init.tiger6_core.rc \
-    device/lge/f460/init.tiger6_product.rc:$(TARGET_ROOT_OUT)/init.tiger6_product.rc \
-    device/lge/f460/init.tiger6.rc:$(TARGET_ROOT_OUT)/init.tiger6.rc \
-    device/lge/f460/ueventd.tiger6.rc:$(TARGET_ROOT_OUT)/ueventd.tiger6.rc
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/init/fstab.tiger6:root/fstab.tiger6 \
+    $(LOCAL_PATH)/rootdir/init/init.apq8084_core.rc:root/init.apq8084_core.rc \
+    $(LOCAL_PATH)/rootdir/init/init.apq8084.crash.sh:root/init.apq8084.crash.sh \
+    $(LOCAL_PATH)/rootdir/init/init.apq8084.sensor.sh:root/init.apq8084.sensor.sh \
+    $(LOCAL_PATH)/rootdir/init/init.class_main.sh:root/init.class_main.sh \
+    $(LOCAL_PATH)/rootdir/init/init.lge.bt_vendor.rc:root/init.lge.bt_vendor.rc \
+    $(LOCAL_PATH)/rootdir/init/init.lge.fs.rc:root/init.lge.fs.rc \
+    $(LOCAL_PATH)/rootdir/init/init.lge.power.rc:root/init.lge.power.rc \
+    $(LOCAL_PATH)/rootdir/init/init.lge.rc:root/init.lge.rc \
+    $(LOCAL_PATH)/rootdir/init/init.lge.usb.default.sh:root/init.lge.usb.default.sh \
+    $(LOCAL_PATH)/rootdir/init/init.lge.usb.rc:root/init.lge.usb.rc \
+    $(LOCAL_PATH)/rootdir/init/init.lge.usb.sh:root/init.lge.usb.sh \
+    $(LOCAL_PATH)/rootdir/init/init.mdm.sh:root/init.mdm.sh \
+    $(LOCAL_PATH)/rootdir/init/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
+    $(LOCAL_PATH)/rootdir/init/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh \
+    $(LOCAL_PATH)/rootdir/init/init.qcom.factory.sh:root/init.qcom.factory.sh \
+    $(LOCAL_PATH)/rootdir/init/init.qcom.rc:root/init.qcom.rc \
+    $(LOCAL_PATH)/rootdir/init/init.qcom.sh:root/init.qcom.sh \
+    $(LOCAL_PATH)/rootdir/init/init.qcom.ssr.sh:root/init.qcom.ssr.sh \
+    $(LOCAL_PATH)/rootdir/init/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
+    $(LOCAL_PATH)/rootdir/init/init.target.rc:root/init.target.rc \
+    $(LOCAL_PATH)/rootdir/init/init.tiger6_core.rc:root/init.tiger6_core.rc \
+    $(LOCAL_PATH)/rootdir/init/init.tiger6_product.rc:root/init.tiger6_product.rc \
+    $(LOCAL_PATH)/rootdir/init/init.tiger6.rc:root/init.tiger6.rc \
+    $(LOCAL_PATH)/rootdir/init/set_emmc_size.sh:root/set_emmc_size.sh \
+    $(LOCAL_PATH)/rootdir/init/ueventd.tiger6.rc:root/ueventd.tiger6.rc \
+    $(LOCAL_PATH)/rootdir/sbin/chargerlogo:root/sbin/chargerlogo \
+    $(LOCAL_PATH)/rootdir/sbin/pub:root/sbin/pub \
+    $(LOCAL_PATH)/rootdir/sbin/rctd:root/sbin/rctd \
+    $(LOCAL_PATH)/rootdir/sbin/setup_fs_static:root/sbin/setup_fs_static \
+    $(LOCAL_PATH)/rootdir/sbin/sreadahead_check:root/sbin/sreadahead_check \
+    $(LOCAL_PATH)/rootdir/sbin/treadahead:root/sbin/treadahead 
 
+# Add WiFi Firmware
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4339/device-bcm.mk)
+
+# WiFi cal NVRAM file
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -50,7 +70,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.full.xml:system/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:system/etc/permissions/android.hardware.camera.raw.xml \
-    frameworks/native/data/etc/android.hardware.consumerir.xml:system/etc/permissions/android.hardware.consumerir.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
@@ -72,6 +91,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
+
+# System properties
+-include $(LOCAL_PATH)/system_prop.mk
 
 # Display
 PRODUCT_PACKAGES += \
@@ -199,6 +221,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     power.apq8084
 
+# Wifi
+PRODUCT_PACKAGES += \
+    libwpa_client \
+    hostapd \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
+    
 # DATA_OS
 PRODUCT_PACKAGES += \
 	librmnetctl \
