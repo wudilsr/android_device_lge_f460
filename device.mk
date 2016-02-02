@@ -42,7 +42,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init/init.qcom.sh:root/init.qcom.sh \
     $(LOCAL_PATH)/rootdir/init/init.qcom.ssr.sh:root/init.qcom.ssr.sh \
     $(LOCAL_PATH)/rootdir/init/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
-    $(LOCAL_PATH)/rootdir/init/init.target.rc:root/init.target.rc \
     $(LOCAL_PATH)/rootdir/init/init.tiger6_core.rc:root/init.tiger6_core.rc \
     $(LOCAL_PATH)/rootdir/init/init.tiger6_product.rc:root/init.tiger6_product.rc \
     $(LOCAL_PATH)/rootdir/init/init.tiger6.rc:root/init.tiger6.rc \
@@ -50,13 +49,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init/ueventd.tiger6.rc:root/ueventd.tiger6.rc \
     $(LOCAL_PATH)/rootdir/sbin/chargerlogo:root/sbin/chargerlogo \
     $(LOCAL_PATH)/rootdir/sbin/pub:root/sbin/pub \
-    $(LOCAL_PATH)/rootdir/sbin/rctd:root/sbin/rctd \
-    $(LOCAL_PATH)/rootdir/sbin/setup_fs_static:root/sbin/setup_fs_static \
-    $(LOCAL_PATH)/rootdir/sbin/sreadahead_check:root/sbin/sreadahead_check \
-    $(LOCAL_PATH)/rootdir/sbin/treadahead:root/sbin/treadahead 
-
-# Add WiFi Firmware
-$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4339/device-bcm.mk)
+    $(LOCAL_PATH)/rootdir/sbin/rctd:root/sbin/rctd 
 
 # WiFi cal NVRAM file
 PRODUCT_COPY_FILES += \
