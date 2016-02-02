@@ -73,7 +73,7 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 USE_CAMERA_STUB := true
 
 # CMHW
-# BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
 # TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap_to_wake"
 
 # Disable HW based full disk encryption
