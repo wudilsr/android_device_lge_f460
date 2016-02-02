@@ -26,8 +26,6 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import /init.${ro.hardware}.power.rc
-
 # chargerlogo
 on chargerlogo
    trigger early-fs
@@ -113,3 +111,5 @@ on property:persist.lge.hardreset=1
 on property:persist.lge.hardreset=0
 	write /sys/module/msm_poweroff/parameters/hard_reset 0
 
+on property:sys.boot_completed=1
+    write /sys/devices/virtual/lg_rgb_led/use_patterns/setting 0

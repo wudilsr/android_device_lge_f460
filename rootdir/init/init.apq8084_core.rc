@@ -1,7 +1,6 @@
 # This file is imported by init.{ro.hardware}.rc
 
 # to override this file (device specific .rc)
-import /init.tiger6_core.rc
 
 on init
     mkdir /mpt 0755 system system
@@ -16,32 +15,6 @@ on init
     mount pstore /dev/pstore /dev/pstore
 
 on fs
-    mount_all fstab.tiger6
-    swapon_all fstab.${ro.hardware}
-
-    wait /dev/block/bootdevice/by-name/persist
-    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/persist
-    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
-    restorecon_recursive /persist
-    mkdir /persist/data 0700 system system
-
-    wait /dev/block/bootdevice/by-name/modem
-    mount vfat /dev/block/bootdevice/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
-
-    wait /dev/block/bootdevice/by-name/sns
-    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/sns
-    mount ext4 /dev/block/bootdevice/by-name/sns /sns nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
-
-    wait /dev/block/bootdevice/by-name/drm
-    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/drm
-    mount ext4 /dev/block/bootdevice/by-name/drm /persist-lg nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
-
-    wait /dev/block/bootdevice/by-name/mpt
-    exec /system/bin/e2fsck -y /dev/block/bootdevice/by-name/mpt
-    mount ext4 /dev/block/bootdevice/by-name/mpt /mpt nosuid nodev barrier=1 noatime noauto_da_alloc errors=continue
-
-    # Executing tune2fs to reserve some region in /data.(40MB)
-    exec /system/bin/tune2fs -u system -r 10240 /dev/block/bootdevice/by-name/userdata
 
 on post-fs
     # execute sreadahead daemon to reduce boot-time

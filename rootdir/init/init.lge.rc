@@ -6,22 +6,7 @@ on post-fs
     #For LGKM default key storage
     mkdir /persist-lg/kmstore 0770 system system
 
-    #USE_SECUREBOOT
-    # verity_update_state
-    # determine_run_wallpaper
-
-    #QFUSE
-    write /sys/devices/platform/lge-qfprom/sec_read 0
-
 on post-fs-data
-    #CAPP_FONTS
-    mkdir /data/font 775 system system
-    chmod 775 /data/font
-    mkdir /data/font/config 775 system system
-    chmod 775 /data/font/config
-    mkdir /data/font/download 775 system system
-    chmod 775 /data/font/download
-
 # 2014-11-10 hyukbin.ko@lge.com LGP_DATA_APN_BACKUP_SPRINT [START]
     mkdir /persist-lg/lgdata 0771 radio radio
 # 2014-11-10 hyukbin.ko@lge.com LGP_DATA_APN_BACKUP_SPRINT [END]
@@ -146,14 +131,6 @@ on property:ro.build.product=p1
 #SELinux
 #service auditd /system/bin/auditd -k
 #    class main
-
-#CAPP_POWEROFF_ANI
-service shutdownanim /system/bin/shutdownanimation
-    class main
-    user graphics
-    group graphics system
-    disabled
-    oneshot
 
 #CAPP_NFS
 service nfsserversetup /system/bin/nfsserversetup
@@ -317,9 +294,6 @@ service rmplb /system/vendor/bin/rmplb.sh
 
 on property:sys.boot_completed=1
     start rmplb
-
-on run-wallpaper
-    exec u:r:wallpaper:s0 -- /sbin/wallpaper
 
 # LG RCT(Rooting Check Tool)
 service rctd /sbin/rctd
