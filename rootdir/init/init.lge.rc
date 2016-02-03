@@ -33,9 +33,6 @@ on post-fs-data
     mkdir /persist-lg/multimedia/scnt 0770 media divxdrm
     mkdir /persist-lg/multimedia/scnt/sdadf 0770 media divxdrm
 
-    #Kill-Switch
-    mkdir /persist-lg/mms 0770 system lgmms
-
     #MM Proxy
     mkdir /persist-lg/mmoprt 0771 system system
 
@@ -223,49 +220,6 @@ service run_cache_res /system/vendor/bin/runtime_boot_cache_res.sh
 on property:sbp.bootanim=1
     start run_cache_res
 
-
-on property:persist.sys.cota.changed=1
-    wait /dev/block/bootdevice/by-name/cust
-    mount ext4 /dev/block/bootdevice/by-name/cust /cust rw remount nosuid nodev barrier=1 noauto_da_alloc
-    restorecon_recursive /cust
-    mkdir /cust/_COTA_RES 0775 system system
-    start cota_update
-
-on property:persist.sys.cota.changed=2
-    wait /dev/block/bootdevice/by-name/cust
-    mount ext4 /dev/block/bootdevice/by-name/cust /cust ro remount nosuid nodev barrier=1 noauto_da_alloc
-    restorecon_recursive /cust
-    start cota_update
-
-
-service cota_update /system/vendor/bin/cota_update.sh
-    disabled
-    oneshot
-
-#LGBackup System service daemon
-service bnrd /sbin/bnrd
-    class main
-    socket bnrd stream 660 root system
-    user root
-    group system radio sdcard_rw
-    disabled
-    seclabel u:r:bnrd:s0
-
-on property:sys.lge.bnrd=1
-    start bnrd
-
-#LGP_DATA_DSQN [START]
-service dsqn /system/bin/dsqn
-    disabled
-    user root
-
-    on property:persist.lg.data.dsqn=1
-        start dsqn
-
-    on property:persist.lg.data.dsqn=0
-        stop dsqn
-#LGP_DATA_DSQN [END]
-
 # 2015-06-11 hyoseab.song@lge.com LGP_DATA_TCPIP_MPTCP_SOCKS [START]
 service socks /system/xbin/redsocks -c /system/etc/redsocks.conf
     disabled
@@ -276,14 +230,6 @@ service socks /system/xbin/redsocks -c /system/etc/redsocks.conf
 
     on property:lg.data.socks=0
         stop socks
-# 2015-06-11 hyoseab.song@lge.com LGP_DATA_TCPIP_MPTCP_SOCKS [END]
-# bugreport is triggered by holding down volume down, volume up and power
-service bugreport /system/bin/dumpstate -d -p -B \
-        -o /data/data/com.android.shell/files/bugreports/bugreport
-    class main
-    disabled
-    oneshot
-    keycodes 114 115 116
 
 # resource parallel loading
 service rmplb /system/vendor/bin/rmplb.sh
@@ -309,12 +255,5 @@ service ccmd /system/bin/ccmd
     socket ccmd stream 0660 root system
     seclabel u:r:ccmd:s0
 
-# LGE_CHANGE_S, [display] feature : SP MIRRORING
-on property:com.lge.splink_screen_off=0
-    write /sys/class/graphics/fb0/sp_link_backlight_off 0
-    write /sys/devices/virtual/input/lge_touch/sp_link_touch_off 0
-
-on property:com.lge.splink_screen_off=1
-    write /sys/class/graphics/fb0/sp_link_backlight_off 1
-    write /sys/devices/virtual/input/lge_touch/sp_link_touch_off 1
-# LGE_CHANGE_E, [display] feature : SP MIRRORING
+# set default sharpening level
+	write /sys/class/graphics/fb0/lge_sharpening_level 5

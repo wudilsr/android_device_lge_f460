@@ -121,9 +121,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sensors/sensor_def_variable.conf:system/etc/sensors/sensor_def_variable.conf
 
 # JZ note: enable it until we find usable thermal-engine
-#PRODUCT_COPY_FILES += \
-#   $(LOCAL_PATH)/conf/thermal-engine-8084.conf:system/etc/thermal-engine-8084.conf \
-#   $(LOCAL_PATH)/conf/thermal-engine-default.conf:system/etc/thermal-engine-default.conf
+PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/configs/thermal-engine-8084.conf:system/etc/thermal-engine-8084.conf \
+   $(LOCAL_PATH)/configs/thermal-engine-default.conf:system/etc/thermal-engine-default.conf
       
 # IRSC
 PRODUCT_COPY_FILES += \
@@ -137,7 +137,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/xtwifi.conf:system/etc/xtwifi.conf \
     $(LOCAL_PATH)/configs/lowi.conf:system/etc/lowi.conf \
     $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf
-
 	
 # Media
 PRODUCT_COPY_FILES += \
@@ -196,8 +195,6 @@ PRODUCT_PACKAGES += \
 	libnfc-nxp-nci \
 	Tag
 
-    
-
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
@@ -216,25 +213,15 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
     
-# DATA_OS
+
+# RIL symbols
 PRODUCT_PACKAGES += \
-	librmnetctl \
-	rmnetcli
-
-# use qcom LLVM
-$(call inherit-product-if-exists, external/llvm/llvm-select.mk)
-
+    liblge
+    
 # ppp
 PRODUCT_PACKAGES += ip-up-vpn
 
 # SOFTAP
-PRODUCT_PACKAGES += \
-	libQWiFiSoftApCfg \
-	libqsap_sdk
-
-# CRDA
-PRODUCT_PACKAGES += \
-	init.crda.sh
-	
-# tcmiface for tcm support
-PRODUCT_PACKAGES += tcmiface
+#PRODUCT_PACKAGES += \
+	#libQWiFiSoftApCfg \
+	#libqsap_sdk
