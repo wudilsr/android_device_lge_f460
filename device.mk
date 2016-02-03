@@ -23,18 +23,15 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui
 #init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init/fstab.tiger6:root/fstab.tiger6 \
-    $(LOCAL_PATH)/rootdir/init/init.apq8084_core.rc:root/init.apq8084_core.rc \
     $(LOCAL_PATH)/rootdir/init/init.apq8084.crash.sh:root/init.apq8084.crash.sh \
     $(LOCAL_PATH)/rootdir/init/init.apq8084.sensor.sh:root/init.apq8084.sensor.sh \
     $(LOCAL_PATH)/rootdir/init/init.class_main.sh:root/init.class_main.sh \
     $(LOCAL_PATH)/rootdir/init/init.lge.bt_vendor.rc:root/init.lge.bt_vendor.rc \
-    $(LOCAL_PATH)/rootdir/init/init.lge.fs.rc:root/init.lge.fs.rc \
     $(LOCAL_PATH)/rootdir/init/init.lge.power.rc:root/init.lge.power.rc \
     $(LOCAL_PATH)/rootdir/init/init.lge.rc:root/init.lge.rc \
     $(LOCAL_PATH)/rootdir/init/init.lge.usb.default.sh:root/init.lge.usb.default.sh \
     $(LOCAL_PATH)/rootdir/init/init.lge.usb.rc:root/init.lge.usb.rc \
     $(LOCAL_PATH)/rootdir/init/init.lge.usb.sh:root/init.lge.usb.sh \
-    $(LOCAL_PATH)/rootdir/init/init.mdm.sh:root/init.mdm.sh \
     $(LOCAL_PATH)/rootdir/init/init.qcom.class_core.sh:root/init.qcom.class_core.sh \
     $(LOCAL_PATH)/rootdir/init/init.qcom.early_boot.sh:root/init.qcom.early_boot.sh \
     $(LOCAL_PATH)/rootdir/init/init.qcom.factory.sh:root/init.qcom.factory.sh \
@@ -42,11 +39,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init/init.qcom.sh:root/init.qcom.sh \
     $(LOCAL_PATH)/rootdir/init/init.qcom.ssr.sh:root/init.qcom.ssr.sh \
     $(LOCAL_PATH)/rootdir/init/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
-    $(LOCAL_PATH)/rootdir/init/init.tiger6_core.rc:root/init.tiger6_core.rc \
-    $(LOCAL_PATH)/rootdir/init/init.tiger6_product.rc:root/init.tiger6_product.rc \
     $(LOCAL_PATH)/rootdir/init/init.tiger6.rc:root/init.tiger6.rc \
-    $(LOCAL_PATH)/rootdir/init/set_emmc_size.sh:root/set_emmc_size.sh \
-    $(LOCAL_PATH)/rootdir/init/ueventd.tiger6.rc:root/ueventd.tiger6.rc \
+    $(LOCAL_PATH)/rootdir/init/ueventd.tiger6.rc:root/ueventd.tiger6.rc 
     $(LOCAL_PATH)/rootdir/sbin/chargerlogo:root/sbin/chargerlogo \
     $(LOCAL_PATH)/rootdir/sbin/pub:root/sbin/pub \
     $(LOCAL_PATH)/rootdir/sbin/rctd:root/sbin/rctd 
