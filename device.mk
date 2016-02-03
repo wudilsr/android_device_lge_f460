@@ -48,6 +48,7 @@ PRODUCT_COPY_FILES += \
 # WiFi cal NVRAM file
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
+    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
 # Permissions
 PRODUCT_COPY_FILES += \
