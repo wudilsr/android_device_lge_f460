@@ -39,6 +39,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init/init.qcom.sh:root/init.qcom.sh \
     $(LOCAL_PATH)/rootdir/init/init.qcom.ssr.sh:root/init.qcom.ssr.sh \
     $(LOCAL_PATH)/rootdir/init/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
+    $(LOCAL_PATH)/rootdir/init/init.mdm.sh:root/init.mdm.sh \
     $(LOCAL_PATH)/rootdir/init/init.tiger6.rc:root/init.tiger6.rc \
     $(LOCAL_PATH)/rootdir/init/ueventd.tiger6.rc:root/ueventd.tiger6.rc \
     $(LOCAL_PATH)/rootdir/sbin/chargerlogo:root/sbin/chargerlogo \

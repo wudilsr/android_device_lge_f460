@@ -55,17 +55,17 @@ $(DXHDCP2_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(DXHDCP2_SYMLINKS)
 
-#KEYMASTER_IMAGES := \
-    #keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaste.mdt
+KEYMASTER_IMAGES := \
+    keymaste.b00 keymaste.b01 keymaste.b02 keymaste.b03 keymaste.mdt
 
-#KEYMASTER_SYMLINKS :=$(addprefix $(TARGET_OUT_ETC)/firmware/,$(KEYMASTER_IMAGES))
-#$(KEYMASTER_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	#@echo "keymaster firmware link: $@"
-	#@mkdir -p $(dir $@)
-	#@rm -rf $@
-	#$(hide) ln -sf /firmware/image/$(call vfatfilename,$(notdir $@)) $@
+KEYMASTER_SYMLINKS :=$(addprefix $(TARGET_OUT_ETC)/firmware/,$(KEYMASTER_IMAGES))
+$(KEYMASTER_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "keymaster firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-#ALL_DEFAULT_INSTALLED_MODULES += $(KEYMASTER_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(KEYMASTER_SYMLINKS)
 
 ISDBTMM_IMAGES := \
     isdbtmm.b00 isdbtmm.b01 isdbtmm.b02 isdbtmm.b03 isdbtmm.mdt
@@ -120,10 +120,10 @@ WIDEVINE_IMAGES := \
 
 WIDEVINE_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(WIDEVINE_IMAGES))
 $(WIDEVINE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "widevine firmware link: $@"
+	@echo "Widevine firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(call vfatfilename,$(notdir $@)) $@
+	$(hide) ln -sf /persist-lg/firmware/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(WIDEVINE_SYMLINKS)
 

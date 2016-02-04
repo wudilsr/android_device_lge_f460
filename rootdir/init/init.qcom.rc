@@ -376,6 +376,41 @@ service immvibed /system/bin/immvibed -p 99 -u 1000
      oneshot
 # End Immersion changes
 
+service mdm_helper /system/bin/mdm_helper
+    class core
+    onrestart setprop ro.service.mdm_helper_restarted "true"
+    user root
+    group root system
+    disabled
+
+service mdm_helper_proxy /system/bin/mdm_helper_proxy
+    class core
+    user system
+    group system
+    disabled
+
+service mdm_launcher /system/bin/sh /init.mdm.sh
+    class core
+    oneshot
+  
+ # Stop mdm_helper_proxy in case of shutdown
+on property:sys.shutdown.requested=*
+    stop mdm_helper_proxy
+
+# Stop mdm_helper_proxy on APQ target
+on property:ro.radio.noril=yes
+    stop mdm_helper_proxy
+
+on property:persist.airplane.mode.pwr.svg=enabled
+    setprop ro.mdm_helper_proxy_req false
+
+on property:init.svc.ril-daemon=running
+    setprop ro.mdm_helper_proxy_req true
+
+# Start mdm_helper_proxy
+on property:ro.mdm_helper_proxy_req=true
+    start mdm_helper_proxy
+    
 #[START][LGE_WIFI][CT][hayun.kim@lge.com] : [SPEC] PPPOE Feature
 service pppoe_extd /system/bin/pppoe_extd
      user root
@@ -586,12 +621,7 @@ on property:bluetooth.startbtsnoop=true
 
 on property:bluetooth.startbtsnoop=false
     stop btsnoop
-
-service qseecomd /system/bin/qseecomd
-   class core
-   user root
-   group root
-   
+ 
 #service thermal-engine /system/vendor/bin/thermal-engine
    #class main
    #user root

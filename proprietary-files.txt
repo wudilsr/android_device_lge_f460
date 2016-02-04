@@ -4,6 +4,10 @@ bin/wififtmd
 # power
 bin/smpl_count
 
+# ril
+bin/efsks
+
+
 # gpu dirvers
 vendor/firmware/a420_pfp.fw
 vendor/firmware/a420_pm4.fw
@@ -26,12 +30,27 @@ vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/egl/libq3dtools_esx.so
 
-# keymaster
-vendor/firmware/keymaster/keymaster.mdt
-vendor/firmware/keymaster/keymaster.b00
-vendor/firmware/keymaster/keymaster.b01
-vendor/firmware/keymaster/keymaster.b02
-vendor/firmware/keymaster/keymaster.b03
+# gps
+lib/libloc_api_v02.so
 
 # time services
 -vendor/lib/libtime_genoff.so
+
+# DRM
+bin/qseecomd
+lib/drm/libdrmwvmplugin.so
+vendor/lib/libDivxDrm.so
+vendor/lib/libQSEEComAPI.so
+vendor/lib/libSHIMDivxDrm.so
+vendor/lib/libdrmdecrypt.so
+vendor/lib/mediadrm/libdrmclearkeyplugin.so
+vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/libWVStreamControlAPI_L1.so
+vendor/lib/libwvm.so
+vendor/lib/libwvdrm_L1.so
+vendor/lib/libssd.so
+vendor/lib/libdrmfs.so
+vendor/lib/libdrmtime.so
+vendor/lib/libmmosal.so
+vendor/lib/librpmb.so
+vendor/lib/libtzdrmgenprov.so
