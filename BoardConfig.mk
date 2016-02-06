@@ -123,7 +123,7 @@ TARGET_POWERHAL_VARIANT := qcom
 BOARD_NFC_CHIPSET := pn547
 
 # RIL
-BOARD_RIL_CLASS += $(LOCAL_PATH)/ril
+BOARD_RIL_CLASS += ../../../device/lge/f460/ril/
 
 # Time for RIL
 PRODUCT_PACKAGES += \

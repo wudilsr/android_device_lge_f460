@@ -4,7 +4,7 @@
 
 #rild.libpath=/system/lib/libreference-ril.so
 rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
-#rild.libargs=-d /dev/smd0
+rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
 persist.rild.nitz_long_ons_1=
@@ -162,7 +162,6 @@ ro.hwui.text_large_cache_height=1024
 
 ro.build.target_operator=GLOBAL
 ro.build.target_country=CN
-ro.afwdata.LGfeatureset=KTBASE
 ro.telephony.default_network=9
 persist.radio.apm_sim_not_pwdn=1
 persist.radio.add_power_save=1
@@ -186,4 +185,4 @@ ro.sys.fw.mOomMinFree5=249036
 ro.sys.fw.mOomMinFree6=311296
 
 ro.vendor.extension_library=libqc-opt.so
-persist.qcril.disable_retry=true
+# persist.qcril.disable_retry=true
