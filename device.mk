@@ -227,3 +227,8 @@ PRODUCT_PACKAGES += \
     
 # ppp
 PRODUCT_PACKAGES += ip-up-vpn
+
+# Radio
+PRODUCT_PACKAGES += \
+    libcnefeatureconfig \
+    libxml2
