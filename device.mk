@@ -185,8 +185,8 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 	
 # Keymaster
-#PRODUCT_PACKAGES += \
-    #keystore.apq8084
+PRODUCT_PACKAGES += \
+    keystore.apq8084
 
 # GPS
 PRODUCT_PACKAGES += \
