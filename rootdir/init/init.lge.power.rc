@@ -26,6 +26,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /init.${ro.hardware}.power.rc
+
 # chargerlogo
 on chargerlogo
    trigger early-fs

@@ -27,62 +27,25 @@
 
 # TODO: This MUST be blocked not use in LGE device configuration.
 #import init.qcom.usb.rc
-
-# Bluetooth configuration
-import /init.lge.bt_vendor.rc
+import init.target.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
-    mkdir /firmware 0771 system system
-    symlink /data/tombstones /tombstones
-	
-on init
-	export LD_SHIM_LIBS /system/lib/libril.so|liblge.so
-	
-	chmod 666 /dev/diag_lge
-	mkdir /mpt 0755 system system
-    # Set permissions for persist partition
-    mkdir /persist 0771 system system
-    # See storage config details at http://source.android.com/tech/storage/
-    mkdir /persist-lg 0771 system system
-    mkdir /sns 0775 system system
-    mkdir /storage 0751 system sdcard_r
-	
-    export EXTERNAL_STORAGE /sdcard
 
-    symlink /sdcard /mnt/sdcard
-    symlink /sdcard /storage/sdcard0
+# TODO: This MUST be disabled not use 'sdcard' in LGE device.
+#on init
+#    # Set permissions for persist partition
+#    mkdir /persist 0771 system system
+#    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
+#    mkdir /storage/sdcard1 0700 root root
+#
+#    export EXTERNAL_STORAGE /sdcard
+#    export SECONDARY_STORAGE /storage/sdcard1
+#
+#    # Support legacy paths
+#    symlink /sdcard /mnt/sdcard
+#    symlink /sdcard /storage/sdcard0
 
-    export VIBE_PIPE_PATH /dev/pipes
-    mkdir /dev/pipes 0771 shell shell
-    setprop ro.ssbd.session /dev/block/bootdevice/by-name/eksst
-    setprop ro.ssbd.offset 0
-    
-on fs
-	mount_all fstab.tiger6
-#    # Keeping following partitions outside fstab file. As user may not have
-#    # these partition flashed on the device. Failure to mount any partition in fstab file
-#    # results in failure to launch late-start class.
-#
-#    wait /dev/block/bootdevice/by-name/cache
-#    mount ext4 /dev/block/bootdevice/by-name/cache /cache nosuid nodev barrier=1
-#
-#    wait /dev/block/bootdevice/by-name/persist
-#    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev barrier=1
-#    restorecon_recursive /persist
-#    mkdir /persist/data 0700 system system
-#    mkdir /persist/data/sfs 0700 system system
-#    mkdir /persist/data/tz 0700 system system
-#
-#    wait /dev/block/bootdevice/by-name/modem
-#    mount vfat /dev/block/bootdevice/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
-on post-fs
-	chown system system /persist-lg
-    chmod 0771 /persist-lg
-
-    chown system system /sns
-    chmod 0755 /sns
-	
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
@@ -92,7 +55,6 @@ on early-boot
     exec u:r:qti_init_shell:s0 -- /init.qcom.early_boot.sh
 
 on boot
-    insmod /system/lib/modules/adsprpc.ko
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
@@ -118,47 +80,6 @@ on boot
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
 
-    #Emotional LED
-    chown system system /sys/devices/virtual/lg_rgb_led/use_patterns/blink_patterns
-    chmod 0664 /sys/devices/virtual/lg_rgb_led/use_patterns/blink_patterns
-    chown system system /sys/devices/virtual/lg_rgb_led/use_patterns/input_patterns
-    chmod 0664 /sys/devices/virtual/lg_rgb_led/use_patterns/input_patterns
-    chown system system /sys/devices/virtual/lg_rgb_led/use_patterns/onoff_patterns
-    chmod 0664 /sys/devices/virtual/lg_rgb_led/use_patterns/onoff_patterns
-    chown system system /sys/devices/virtual/lg_rgb_led/use_patterns/setting
-    chmod 0664 /sys/devices/virtual/lg_rgb_led/use_patterns/setting
-    write /sys/devices/virtual/lg_rgb_led/use_patterns/setting 1
-
-	#Touch_Knock_on
-    chown system system /sys/devices/virtual/input/lge_touch/lpwg_data
-    chmod 664 /sys/devices/virtual/input/lge_touch/lpwg_data
-    chown system system /sys/devices/virtual/input/lge_touch/lpwg_notify
-    chmod 664 /sys/devices/virtual/input/lge_touch/lpwg_notify
-    write /sys/devices/virtual/input/lge_touch/lpwg_notify  "1 1 0 0"
-    chown system system /sys/devices/virtual/input/lge_touch/incoming_call
-    chmod 664 /sys/devices/virtual/input/lge_touch/incoming_call
-    chown system lgkeyguard /sys/devices/virtual/input/lge_touch/keyguard
-    chmod 664 /sys/devices/virtual/input/lge_touch/keyguard
-    chown system system /sys/devices/virtual/input/lge_touch/ime_status
-    chmod 664 /sys/devices/virtual/input/lge_touch/ime_status
-    chown system system /sys/devices/virtual/input/lge_touch/quick_cover_status
-    chmod 664 /sys/devices/virtual/input/lge_touch/quick_cover_status
-    chown system system /sys/devices/virtual/input/lge_touch/ts_noise_log_enable
-    chmod 664 /sys/devices/virtual/input/lge_touch/ts_noise_log_enable
-    chown system system /sys/devices/virtual/input/lge_touch/ts_noise
-    chmod 664 /sys/devices/virtual/input/lge_touch/ts_noise
-
-	# setup permissions for fb0 related nodes
-    chown system system /sys/class/graphics/fb0/mdp/vfps
-    chmod 660 /sys/class/graphics/fb0/mdp/vfps
-    chown system system /sys/class/graphics/fb0/mdp/vfps_ratio
-    chmod 664 /sys/class/graphics/fb0/mdp/vfps_ratio
-    chown system system /sys/class/graphics/fb0/dynamic_fps
-    chmod 664 /sys/class/graphics/fb0/dynamic_fps
-
-	# improving first Touch response by i2c active
-    write /sys/devices/f9966000.i2c/power/control on
-	
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
@@ -267,85 +188,8 @@ on boot
     # Set the default message loglevel to KERN_INFO
     write /proc/sys/kernel/printk "6 6 1 7"
 
-service atd /system/bin/atd /dev/ttyGS0 /dev/smd0
-    socket atd stream 0660 system inet
-    class main
-
-# 2012.08.24 real-wifi@lge.com[wo0gi] TestMode Daemon for broadcom driver [START]
-service diagd /system/bin/diagd
-    class late_start
-    user root
-    group radio system
-    disabled
-    oneshot
-    socket lsock_diagd stream 666
-
-on property:wifi_ftm.diagd_start=1
-    start diagd
-
-on property:wifi_ftm.diagd_start=0
-    stop diagd
-# 2012.08.24 real-wifi@lge.com[wo0gi] TestMode Daemon for broadcom driver [END]
-
-service dhcp6cDNS_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6cDNS.conf" -Df wlan0
-     disabled
-     oneshot
-
-service dhcp6c_wlan0 /system/bin/dhcp6c -c "/etc/wide-dhcpv6/dhcp6c.conf" -Df wlan0
-     disabled
-     oneshot
-#[END][LGE_WIFI][CT][hayun.kim@lge.com] : [SPEC] PPPOE Feature
-
-#[START][LGE_WIFI][COMMON]: TO read WIFI MAC from LGFTM(MISC - block device)
-service wififtmd /system/bin/wififtmd
-     user root
-     group radio system
-     disabled
-     oneshot
-
-#[END][LGE_WIFI][COMMON]: TO read WIFI MAC from LGFTM(MISC - block device)
-
-
-on property:wifi_ftm.wififtmd_start=1
-     start wififtmd
-
-on property:wifi_ftm.wififtmd_start=0
-     stop wififtmd
-     
 # msm specific files that need to be created on /data
 on post-fs-data
-    mkdir /data/tombstones 0771 system system
-    mkdir /tombstones/modem 0771 system system
-    mkdir /tombstones/lpass 0771 system system
-    mkdir /tombstones/wcnss 0771 system system
-    mkdir /tombstones/dsps 0771 system system
-
-	# NFC local data and nfcee xml storage
-    mkdir /data/nfc 0770 nfc nfc
-    mkdir /data/nfc/param 0770 nfc nfc
-
-    #LGDRM
-    mkdir /data/lgdrm 0770 lgdrm lgdrm_acc
-    mkdir /persist-lg/lgdrm 0770 lgdrm lgdrm_acc
-
-    #Widevine
-    mkdir /persist-lg/widevine 0770 drm system
-   
-    #DivX DRM
-    mkdir /persist-lg/multimedia 0770 media divxdrm
-    mkdir /persist-lg/multimedia/nx 0770 media divxdrm
-    mkdir /persist-lg/multimedia/uma 0770 media divxdrm
-    mkdir /persist-lg/multimedia/scnt 0770 media divxdrm
-    mkdir /persist-lg/multimedia/scnt/sdadf 0770 media divxdrm
-	chown system system /mpt
-    chmod 0775 /mpt
-
-    #Widevine firmware copy
-    exec /system/bin/cpfirmware widevine /persist-lg/firmware
-    
-	# make directory for sns.reg used by sensordaemon
-    mkdir /sns/cal/ 0644 system system
-	
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
 
@@ -434,97 +278,6 @@ on post-fs-data
     #Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
 
-# Begin Immersion changes
-service immvibed /system/bin/immvibed -p 99 -u 1000
-     class core
-     user root
-     group root
-     oneshot
-# End Immersion changes
-
-#TODO: This MUST be disabled not use 'qcom ims daemon' in LGE platform.
-service imsqmidaemon /system/bin/imsqmidaemon
-    class main
-    user system
-    socket ims_qmid stream 0660 system radio
-    group radio net_raw log qcom_diag
-
-# TODO: This MUST be disabled not use 'ims_rtp_daemon' in LGE platform.
-service ims_rtp_daemon /system/bin/ims_rtp_daemon
-   class main
-   user system
-   socket ims_rtpd stream 0660 system radio
-   group radio net_raw diag qcom_diag log
-   disabled
-
-on property:sys.ims.DATA_DAEMON_STATUS=1
-    start ims_rtp_daemon
-
-#TODO: This MUST be disabled not use 'qimsdatadaemon' in LGE platform.
-service imsdatadaemon /system/bin/imsdatadaemon
-    class main
-    user system
-    socket ims_datad stream 0660 system radio
-    group system wifi radio inet net_raw log qcom_diag net_admin
-    disabled
-
-service mdm_helper /system/bin/mdm_helper
-    class core
-    onrestart setprop ro.service.mdm_helper_restarted "true"
-    user root
-    group root system
-    disabled
-
-service mdm_helper_proxy /system/bin/mdm_helper_proxy
-    class core
-    user system
-    group system
-    disabled
-
-service mdm_launcher /system/bin/sh /init.mdm.sh
-    class core
-    oneshot
-  
- # Stop mdm_helper_proxy in case of shutdown
-on property:sys.shutdown.requested=*
-    stop mdm_helper_proxy
-
-# Stop mdm_helper_proxy on APQ target
-on property:ro.radio.noril=yes
-    stop mdm_helper_proxy
-
-on property:persist.airplane.mode.pwr.svg=enabled
-    setprop ro.mdm_helper_proxy_req false
-
-on property:init.svc.ril-daemon=running
-    setprop ro.mdm_helper_proxy_req true
-
-# Start mdm_helper_proxy
-on property:ro.mdm_helper_proxy_req=true
-    start mdm_helper_proxy
-    
-#[START][LGE_WIFI][CT][hayun.kim@lge.com] : [SPEC] PPPOE Feature
-service pppoe_extd /system/bin/pppoe_extd
-     user root
-     group system radio
-     disabled
-     oneshot
-
-service lge-sensor-sh /system/bin/sh /init.apq8084.sensor.sh
-   class core
-   user root
-   oneshot
-   
-# Broadcast Service[START]
-service broadcast /system/bin/libbroadcast_server
-	class main
-	user media
-	group system audio media graphics sdcard_rw
-	on property:init.svc.media=restarting
-	socket dmb_socket stream 0660 media media
-		restart broadcast
-# Broadcast Service[END]
-
 # Export GPIO56 for fusion targets to enable/disable hub
 service usbhub_init /system/bin/usbhub_init
    class late_start
@@ -532,99 +285,10 @@ service usbhub_init /system/bin/usbhub_init
    disabled
    oneshot
 
-service qseecomd /system/bin/qseecomd
-   class core
-   user root
-   group root
-
-service qcamerasvr /system/bin/mm-qcamera-daemon
-    class late_start
-    user camera
-    group camera system inet input graphics
-	
-service thermal-engine /system/vendor/bin/thermal-engine
-   class main
-   user root
-   socket thermal-send-client stream 0666 system system
-   socket thermal-recv-client stream 0660 system system
-   socket thermal-recv-passive-client stream 0666 system system
-   group root
-
-service time_daemon /system/bin/time_daemon
-   class late_start
-   user root
-   group root
-
-service audiod /system/bin/audiod
-   class late_start
-   user system
-   group system
-
-service usf_tester /system/bin/usf_tester
-    user system
-    group system inet
-    disabled
-
-service usf_epos /system/bin/usf_epos
-    user system
-    group system inet
-    disabled
-
-service usf_gesture /system/bin/usf_gesture
-    user system
-    group system inet
-    disabled
-
-service usf_sync_gesture /system/bin/usf_sync_gesture
-    user system
-    group system inet
-    disabled
-
-service usf_p2p /system/bin/usf_p2p
-    user system
-    group system inet
-    disabled
-
-service usf_hovering /system/bin/usf_hovering
-    user system
-    group system inet
-    disabled
-
-service usf_proximity /system/bin/usf_proximity
-    user system
-    group system inet
-    disabled
-
-service usf-post-boot /system/bin/sh /system/etc/usf_post_boot.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-	
 # TODO: This MUST be disabled not use 'qcom system daemon' in LGE platform.
 #service qcomsysd /system/bin/qcom-system-daemon
 #    class main
 
-on property:persist.sys.ssr.restart_level=1
-	exec /system/bin/sh /init.qcom.ssr.sh 1
-
-on property:persist.sys.ssr.restart_level=3
-	exec /system/bin/sh /init.qcom.ssr.sh 3
-
-on property:persist.service.ssr_dump.enable=1
-	write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
-
-on property:persist.service.ssr_dump.enable=0
-	write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
-	
-on property:init.svc.media=restarting
-     restart qcamerasvr
-on property:init.svc.servicemanager=restarting
-     restart qcamerasvr
-	 
-on property:init.svc.bootanim=stopped
-    write /sys/devices/f9927000.i2c/i2c-2/2-0072/enable_irq 1
-	
 on property:wifi.change_nv_owner=1
     chown wifi wifi /persist/WCNSS_qcom_wlan_nv.bin
 
@@ -689,25 +353,7 @@ on property:bluetooth.startbtsnoop=true
 
 on property:bluetooth.startbtsnoop=false
     stop btsnoop
- 
-#service thermal-engine /system/vendor/bin/thermal-engine
-   #class main
-   #user root
-   #socket thermal-send-client stream 0666 system system
-   #socket thermal-recv-client stream 0660 system system
-   #socket thermal-recv-passive-client stream 0666 system system
-  #group root
 
-service time_daemon /system/bin/time_daemon
-   class late_start
-   user root
-   group root
-   
-service audiod /system/bin/audiod
-   class late_start
-   user system
-   group system
-   
 service qcom-c_core-sh /system/bin/sh /init.qcom.class_core.sh
     class core
     user root
@@ -1041,7 +687,7 @@ service qcom-sh /system/bin/sh /init.qcom.sh
     user root
     oneshot
 
-service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
+service qcom-post-boot /system/bin/sh /sbin/post-init.sh
     class late_start
     user root
     disabled
