@@ -6,7 +6,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # System properties
-#-include $(LOCAL_PATH)/system_prop.mk
+-include $(LOCAL_PATH)/system_prop.mk
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi 560dpi xxxhdpi
@@ -178,10 +178,9 @@ PRODUCT_BOOT_JARS += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    bdAddrLoader 
-	
+   bdAddrLoader 
+
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/hcidump.sh:system/etc/hcidump.sh \
 	$(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 	
 # Keymaster
@@ -217,6 +216,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
+    hostapd_cli \
     dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf

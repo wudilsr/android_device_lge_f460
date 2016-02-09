@@ -62,12 +62,6 @@ setprop bluetooth.chip.vendor brcm
 # For BCM FM Radio
 setprop ro.fm.module BCM
 
-service bdaddr_loader /system/bin/bdaddr_loader
-    user root
-    group bluetooth net_bt_admin misc net_bt_stack
-    disabled
-    oneshot
-
 #BT_S : [CONBT-2025] LGC_BT_COMMON_IMP_MOS_V4L2
 # shared transport user space mgr service for Bluetooth, FM and GPS
 # setprop persist.service.bdroid.bdaddr "/persist/bluetooth/.bdaddr" # 2015.07.30 no such a file

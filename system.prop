@@ -140,20 +140,6 @@ ro.nfc.port=I2C
 #enable dsp gapless mode by default
 audio.offload.gapless.enabled=true
 
-
-#hwui properties
-ro.hwui.texture_cache_size=72
-ro.hwui.layer_cache_size=48
-ro.hwui.r_buffer_cache_size=8
-ro.hwui.path_cache_size=32
-ro.hwui.gradient_cache_size=1
-ro.hwui.drop_shadow_cache_size=6
-ro.hwui.texture_cache_flushrate=0.4
-ro.hwui.text_small_cache_width=1024
-ro.hwui.text_small_cache_height=1024
-ro.hwui.text_large_cache_width=2048
-ro.hwui.text_large_cache_height=1024
-
 #Enable property to enable ds2
 #audio.dolby.ds2.enabled=true
 
@@ -167,21 +153,6 @@ persist.radio.add_power_save=1
 ro.ril.telephony.mqanelements=5
 ro.telephony.ril_class=LgeLteRIL
 lge.nfc.vendor=nxp
-ro.hardware.keystore=qcom
-ro.sys.fw.bg_apps_limit=64
-ro.sys.fw.bg_cached_ratio=0.5
-ro.sys.fw.mOomAdj1=0
-ro.sys.fw.mOomAdj2=1
-ro.sys.fw.mOomAdj3=2
-ro.sys.fw.mOomAdj4=3
-ro.sys.fw.mOomAdj5=9
-ro.sys.fw.mOomAdj6=15
-ro.sys.fw.mOomMinFree1=73728
-ro.sys.fw.mOomMinFree2=92160
-ro.sys.fw.mOomMinFree3=110592
-ro.sys.fw.mOomMinFree4=129024
-ro.sys.fw.mOomMinFree5=249036
-ro.sys.fw.mOomMinFree6=311296
 
 ro.vendor.extension_library=libqc-opt.so
 persist.qcril.disable_retry=true

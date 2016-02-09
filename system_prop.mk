@@ -15,3 +15,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.netmgrd.qos.enable=false \
     persist.data.qmi.adb_logmask=0 \
     ro.use_data_netmgrd=true
+
+# Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+    bluetooth.chip.vendor=brcm \
+    ro.bt.bdaddr_path="/data/misc/bluetooth/bdaddr" \
+    persist.service.avrcp.browsing=1
