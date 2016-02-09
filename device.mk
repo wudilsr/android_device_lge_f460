@@ -98,13 +98,14 @@ PRODUCT_PACKAGES += \
     memtrack.apq8084 \
 	
 # Audio
-#PRODUCT_PACKAGES += \
-    #audiod \
-    #audio.a2dp.default \
-    #audio.primary.apq8084 \
-    #audio.r_submix.default \
-    #audio.usb.default \
-    #audio_policy.apq8084  \
+PRODUCT_PACKAGES += \
+    audiod \
+    audio.a2dp.default \
+    audio.primary.apq8084 \
+    audio.r_submix.default \
+    audio.usb.default \
+    audio_policy.apq8084 \
+    tinymix
 	
 # Audio configuration file
 PRODUCT_COPY_FILES += \
@@ -113,15 +114,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/mixer_paths.xml:system/etc/mixer_paths.xml 
 
 # Audio effects
-#PRODUCT_PACKAGES += \
-    #libaudio-resampler \
-    #libqcompostprocbundle \
-    #libqcomvisualizer \
-    #libqcomvoiceprocessing  \
-    #tinycap \
-    #tinyloop \
-    #tinymix \
-    #tinyplay
+PRODUCT_PACKAGES += \
+    libaudio-resampler \
+    libqcompostprocbundle \
+    libqcomvisualizer \
+    libqcomvoiceprocessing 
 
 # Sensors
 PRODUCT_COPY_FILES += \
@@ -154,27 +151,23 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
     
-# OMX
+# Media
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libdashplayer \
     libdivxdrmdecrypt \
-    libextmedia_jni \
+    libdashplayer \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
-    libOmxSwVencMpeg4 \
     libOmxVdec \
     libOmxVdecHevc \
     libOmxVenc \
-    libOmxVidcCommon \
-    libqcmediaplayer \
+    libstagefrighthw \
     qcmediaplayer
-
-PRODUCT_BOOT_JARS += \
-    qcmediaplayer
+    
+PRODUCT_BOOT_JARS += qcmediaplayer
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -223,7 +216,8 @@ PRODUCT_PACKAGES += \
 
 # RIL symbols
 PRODUCT_PACKAGES += \
-    liblge
+    liblge \
+    librmnetctl
 
 # Qualcomm
 PRODUCT_PACKAGES += \
@@ -234,6 +228,12 @@ PRODUCT_PACKAGES += \
 # ppp
 PRODUCT_PACKAGES += ip-up-vpn
 
+# tcmiface for tcm support
+PRODUCT_PACKAGES += tcmiface
+
+PRODUCT_BOOT_JARS += \
+    tcmiface
+    
 # Radio
 PRODUCT_PACKAGES += \
     libxml2
