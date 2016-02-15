@@ -949,6 +949,7 @@
         <ctl name="LINEOUT3 Volume" value="16" />
         <ctl name="RX3 HPF cut off" value="MIN_3DB_150Hz" />
         <ctl name="SPK Amp Volume" value="3" />
+        <ctl name="SPK Amp CLK" value="On" />
     </path>
 
     <path name="fake_speaker">
@@ -1409,6 +1410,7 @@
         <ctl name="RDAC5 MUX" value="DEM3_INV" />
         <ctl name="LINEOUT1 Volume" value="20" />
         <ctl name="LINEOUT3 Volume" value="20" />
+        <ctl name="SPK Amp Volume" value="5" />
     </path>
 
     <path name="voice-rec-mic">
