@@ -49,8 +49,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init/init.tiger6.rc:root/init.tiger6.rc \
     $(LOCAL_PATH)/rootdir/init/ueventd.tiger6.rc:root/ueventd.tiger6.rc \
     $(LOCAL_PATH)/rootdir/sbin/chargerlogo:root/sbin/chargerlogo \
-    $(LOCAL_PATH)/rootdir/sbin/pub:root/sbin/pub \
-    $(LOCAL_PATH)/rootdir/sbin/rctd:root/sbin/rctd 
 
 # WiFi cal NVRAM file
 PRODUCT_COPY_FILES += \
@@ -99,13 +97,17 @@ PRODUCT_PACKAGES += \
 	
 # Audio
 PRODUCT_PACKAGES += \
-    audiod \
     audio.a2dp.default \
     audio.primary.apq8084 \
     audio.r_submix.default \
     audio.usb.default \
     audio_policy.apq8084 \
-    tinymix
+    tinymix \
+    tinyloop \
+    tinyplay \
+    tinycap \
+    libtinyxml \
+    libtinyxml2
 	
 # Audio configuration file
 PRODUCT_COPY_FILES += \
@@ -154,17 +156,22 @@ PRODUCT_COPY_FILES += \
 # Media
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libdivxdrmdecrypt \
     libdashplayer \
+    libdivxdrmdecrypt \
+    libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
+	libmm-omxcore \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
     libOmxVdec \
-    libOmxVdecHevc \
+    libOmxVdpp \
     libOmxVenc \
     libstagefrighthw \
+    libstagefright_omx \
+    libqomx_core \
+    libqcmediaplayer \
     qcmediaplayer
     
 PRODUCT_BOOT_JARS += qcmediaplayer

@@ -32,8 +32,11 @@ import init.target.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
 
-# TODO: This MUST be disabled not use 'sdcard' in LGE device.
-#on init
+on init
+	# Create cgroup mount point for cpu accounting
+    mkdir /acct
+    mount cgroup none /acct cpuacct
+    mkdir /acct/uid
 #    # Set permissions for persist partition
 #    mkdir /persist 0771 system system
 #    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
