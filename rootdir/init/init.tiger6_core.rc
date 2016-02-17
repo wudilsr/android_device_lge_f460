@@ -78,6 +78,9 @@ on boot
    chown system system /sys/class/graphics/fb0/dynamic_fps
    chmod 664 /sys/class/graphics/fb0/dynamic_fps
 
+# vibrator control
+	chown system system /sys/devices/platform/tspdrv/nforce_timed
+	
 # improving first Touch response by i2c active
     write /sys/devices/f9966000.i2c/power/control on
 
