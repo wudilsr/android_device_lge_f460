@@ -98,6 +98,7 @@ PRODUCT_PACKAGES += \
 	
 # Audio
 PRODUCT_PACKAGES += \
+	audiod \
     audio.a2dp.default \
     audio.primary.apq8084 \
     audio.r_submix.default \
@@ -228,9 +229,10 @@ PRODUCT_PACKAGES += \
 
 # RIL symbols
 PRODUCT_PACKAGES += \
-    liblge \
-    librmnetctl
-
+    libcurl \
+    librmnetctl \
+	libtime_genoff
+    
 # Qualcomm
 PRODUCT_PACKAGES += \
     dsi_config.xml \
