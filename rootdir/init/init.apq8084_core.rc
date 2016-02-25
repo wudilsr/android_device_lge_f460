@@ -10,7 +10,7 @@ import /init.lge.log.rc
 import /init.lge.fm.rc
 
 on init
-	export LD_SHIM_LIBS /system/lib/libril.so|liblge.so
+    export LD_SHIM_LIBS /system/lib/libril.so|liblge.so
     mkdir /mpt 0755 system system
 
     wait /dev/block/bootdevice/by-name/mpt

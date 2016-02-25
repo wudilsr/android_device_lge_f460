@@ -91,14 +91,14 @@ PRODUCT_COPY_FILES += \
 
 # Display
 PRODUCT_PACKAGES += \
-	copybit.apq8084 \
+    copybit.apq8084 \
     gralloc.apq8084 \
     hwcomposer.apq8084 \
     memtrack.apq8084 \
-	
+    
 # Audio
 PRODUCT_PACKAGES += \
-	audiod \
+    audiod \
     audio.a2dp.default \
     audio.primary.apq8084 \
     audio.r_submix.default \
@@ -110,7 +110,7 @@ PRODUCT_PACKAGES += \
     tinycap \
     libtinyxml \
     libtinyxml2
-	
+    
 # Audio configuration file
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf \
@@ -146,7 +146,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/xtwifi.conf:system/etc/xtwifi.conf \
     $(LOCAL_PATH)/configs/lowi.conf:system/etc/lowi.conf \
     $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf
-	
+    
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:system/etc/media_codecs.xml \
@@ -163,7 +163,7 @@ PRODUCT_PACKAGES += \
     libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
-	libmm-omxcore \
+    libmm-omxcore \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
@@ -183,7 +183,7 @@ PRODUCT_PACKAGES += \
    bdAddrLoader 
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -196,7 +196,7 @@ PRODUCT_PACKAGES += \
 # GPS
 PRODUCT_PACKAGES += \
     gps.apq8084
-	
+    
 # Lights
 PRODUCT_PACKAGES += \
     lights.apq8084
@@ -204,9 +204,9 @@ PRODUCT_PACKAGES += \
 # NFC
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
-	libnfc_ndef \
-	libnfc-nxp-nci \
-	Tag
+    libnfc_ndef \
+    libnfc-nxp-nci \
+    Tag
 
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
@@ -229,9 +229,10 @@ PRODUCT_PACKAGES += \
 
 # RIL symbols
 PRODUCT_PACKAGES += \
+    liblge \
     libcurl \
     librmnetctl \
-	libtime_genoff
+    libtime_genoff
     
 # Qualcomm
 PRODUCT_PACKAGES += \

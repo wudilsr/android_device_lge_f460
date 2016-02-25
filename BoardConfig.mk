@@ -113,9 +113,8 @@ TARGET_POWERHAL_VARIANT := qcom
 BOARD_NFC_CHIPSET := pn547
 
 # RIL
-# BOARD_RIL_CLASS += ../../../device/lge/f460/ril/
-# TARGET_RIL_VARIANT := caf
-TARGET_RELEASE_CPPFLAGS += -DNEEDS_LGE_RIL_SYMBOLS
+BOARD_RIL_CLASS += ../../../device/lge/f460/ril/
+TARGET_RIL_VARIANT := caf
 
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
