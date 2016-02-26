@@ -203,6 +203,8 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
+    NfcNci \
+    nfc_nci.pn54x.default \
     com.android.nfc_extras \
     libnfc_ndef \
     libnfc-nxp-nci \
@@ -211,8 +213,7 @@ PRODUCT_PACKAGES += \
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
-    $(LOCAL_PATH)/configs/nfc/libnfc-nxp-lg.conf:system/etc/libnfc-nxp-lg.conf
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf
 
 # Power
 PRODUCT_PACKAGES += \
