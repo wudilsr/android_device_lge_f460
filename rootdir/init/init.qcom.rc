@@ -194,8 +194,16 @@ on boot
     mkdir /data/nfc/param 0770 nfc nfc
 
     # For NFC fix
-    symlink /dev/pn547 /dev/pn544
+    # permissions for NFC
+    chmod 0600 /dev/pn547
+    chown nfc nfc /dev/pn547
+    setprop debug.nfc.fw_download "true"
+    setprop debug.nfc.fw_boot_download "false"
+    # NFC --
 
+    # HAL looks for pn54x but kernel driver uses pn547
+    symlink /dev/pn547 /dev/pn54x
+    
     # Set the console loglevel to < KERN_INFO
     # Set the default message loglevel to KERN_INFO
     write /proc/sys/kernel/printk "6 6 1 7"

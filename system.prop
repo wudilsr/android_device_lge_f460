@@ -135,7 +135,7 @@ audio.offload.video=true
 use.voice.path.for.pcm.voip=true
 
 # system prop for NFC DT
-ro.nfc.port=I2C
+# ro.nfc.port=I2C
 
 #enable dsp gapless mode by default
 audio.offload.gapless.enabled=true
@@ -152,7 +152,6 @@ ro.telephony.default_network=9
 persist.radio.add_power_save=1
 ro.ril.telephony.mqanelements=5
 ro.telephony.ril_class=LgeLteRIL
-lge.nfc.vendor=nxp
 
 ro.vendor.extension_library=libqc-opt.so
 persist.qcril.disable_retry=true
