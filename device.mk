@@ -89,6 +89,9 @@ PRODUCT_COPY_FILES += \
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 # Display
 PRODUCT_PACKAGES += \
     copybit.apq8084 \
@@ -194,8 +197,8 @@ PRODUCT_PACKAGES += \
     keystore.apq8084
 
 # GPS
-PRODUCT_PACKAGES += \
-    gps.apq8084
+# PRODUCT_PACKAGES += \
+#     gps.apq8084
     
 # Lights
 PRODUCT_PACKAGES += \
