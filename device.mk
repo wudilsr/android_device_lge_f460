@@ -146,9 +146,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/flp.conf:system/etc/flp.conf \
     $(LOCAL_PATH)/configs/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/configs/xtwifi.conf:system/etc/xtwifi.conf \
-    $(LOCAL_PATH)/configs/lowi.conf:system/etc/lowi.conf \
-    $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf
     
 # Media
 PRODUCT_COPY_FILES += \
@@ -196,10 +193,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     keystore.apq8084
 
-# GPS
-# PRODUCT_PACKAGES += \
-#     gps.apq8084
-    
 # Lights
 PRODUCT_PACKAGES += \
     lights.apq8084
