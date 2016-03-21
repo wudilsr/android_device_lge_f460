@@ -97,6 +97,9 @@ fi
 mount -o remount,rw /;
 mount -o remount,rw, /system;
 
+# WIFI MAC address
+start wififtmd
+
 # Permissions for LMK
 $BB chmod 0664 /sys/module/lowmemorykiller/parameters/adj
 $BB chmod 0664 /sys/module/lowmemorykiller/parameters/minfree
@@ -274,4 +277,15 @@ fi;
 setprop windowsmgr.max_events_per_sec 240;
 # make sure bq24296 iusb was no limited
 echo 2000 > /sys/module/bq24296_charger/parameters/iusb_control;
+
+# sharpe control
+if [ -e /data/sharp_cm ];then
+	chmod 0755 /data/sharp_cm;
+	input keyevent 26;
+	sleep 1;
+	input keyevent 26;
+	echo `cat /data/sharp_cm` > /sys/devices/virtual/graphics/fb0/lge_sharpening_level;
+fi
+# sharpe control
+
 exit;

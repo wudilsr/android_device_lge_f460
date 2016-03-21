@@ -155,3 +155,5 @@ ro.telephony.ril_class=LgeLteRIL
 
 ro.vendor.extension_library=libqc-opt.so
 persist.qcril.disable_retry=true
+
+persist.audio.dualmic.config=endfire
