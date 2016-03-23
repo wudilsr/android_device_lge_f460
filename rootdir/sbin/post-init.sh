@@ -279,7 +279,7 @@ setprop windowsmgr.max_events_per_sec 240;
 echo 2000 > /sys/module/bq24296_charger/parameters/iusb_control;
 
 # sharpe control
-chmod 0644 /sbin/sharpening
+chmod 0755 /sbin/sharpening
 if [ -e /data/sp_cm ];then
 	chmod 0755 /data/sp_cm;
 	input keyevent 26;

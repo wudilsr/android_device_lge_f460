@@ -54,6 +54,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init/init.tiger6.rc:root/init.tiger6.rc \
     $(LOCAL_PATH)/rootdir/init/ueventd.tiger6.rc:root/ueventd.tiger6.rc \
     $(LOCAL_PATH)/rootdir/sbin/chargerlogo:root/sbin/chargerlogo \
+    $(LOCAL_PATH)/rootdir/sbin/sharpening:root/sbin/sharpening \
     $(LOCAL_PATH)/rootdir/sbin/post-init.sh:root/sbin/post-init.sh
 
 # WiFi cal NVRAM file
