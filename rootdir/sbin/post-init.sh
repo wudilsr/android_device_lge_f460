@@ -279,12 +279,12 @@ setprop windowsmgr.max_events_per_sec 240;
 echo 2000 > /sys/module/bq24296_charger/parameters/iusb_control;
 
 # sharpe control
-if [ -e /data/sharp_cm ];then
-	chmod 0755 /data/sharp_cm;
+if [ -e /data/sp_cm ];then
+	chmod 0755 /data/sp_cm;
 	input keyevent 26;
 	sleep 1;
 	input keyevent 26;
-	echo `cat /data/sharp_cm` > /sys/devices/virtual/graphics/fb0/lge_sharpening_level;
+	echo `cat /data/sp_cm` > /sys/devices/virtual/graphics/fb0/lge_sharpening_level;
 fi
 # sharpe control
 
