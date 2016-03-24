@@ -80,8 +80,8 @@ TARGET_USE_COMPAT_GRALLOC_ALIGN := true
 COMMON_GLOBAL_CFLAGS += \
     -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' \
     -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
-    
-# CMHW
+
+# MKHW
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/mkhw/
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap_to_wake"
 
