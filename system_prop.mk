@@ -114,3 +114,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.nfc.port=I2C
+
+# maintainer
+PRODUCT_PROPERTY_OVERRIDES += \
+  ro.mk.maintainer=JZshminer
