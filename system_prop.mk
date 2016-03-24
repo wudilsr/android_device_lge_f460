@@ -1,8 +1,3 @@
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.hwc.mdpcomp.enable=true \
-    ro.opengles.version=196608 \
-    
-
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.gps.qc_nlp_in_use=0 \
@@ -18,18 +13,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
-   #rild.libpath=/system/lib/libreference-ril.so \
    rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so \
-   # rild.libargs=-d /dev/smd0 \
-   persist.rild.nitz_plmn= \
-   persist.rild.nitz_long_ons_0= \
-   persist.rild.nitz_long_ons_1= \
-   persist.rild.nitz_long_ons_2= \
-   persist.rild.nitz_long_ons_3= \
-   persist.rild.nitz_short_ons_0= \
-   persist.rild.nitz_short_ons_1= \
-   persist.rild.nitz_short_ons_2= \
-   persist.rild.nitz_short_ons_3= \
+   persist.rild.nitz_plmn="" \
+   persist.rild.nitz_long_ons_0="" \
+   persist.rild.nitz_long_ons_1="" \
+   persist.rild.nitz_long_ons_2="" \
+   persist.rild.nitz_long_ons_3="" \
+   persist.rild.nitz_short_ons_0="" \
+   persist.rild.nitz_short_ons_1="" \
+   persist.rild.nitz_short_ons_2="" \
+   persist.rild.nitz_short_ons_3="" \
    ril.subscription.types=NV,RUIM \
    DEVICE_PROVISIONED=1 \
    persist.radio.apm_mdm_not_pwdn=1 \
@@ -47,14 +40,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
    persist.hwc.mdpcomp.enable=true \
    debug.mdpcomp.logs=0 \
    ro.sf.lcd_density=560 \
-   ro.opengles.version=196609
+   ro.opengles.version=196609 \
+   ro.qualcomm.cabl=1
 
 # audio 
 PRODUCT_PROPERTY_OVERRIDES += \
    tunnel.audio.encode = false \
    audio.offload.video=true \
    use.voice.path.for.pcm.voip=true \
-   audio.offload.gapless.enabled=true
+   audio.offload.gapless.enabled=true \
+   audio.offload.buffer.size.kb=32
 
 # media
 PRODUCT_PROPERTY_OVERRIDES += \
