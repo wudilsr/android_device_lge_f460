@@ -27,4 +27,4 @@
 #  IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-add_lunch_combo cm_f460-userdebug
+add_lunch_combo mk_f460-userdebug
