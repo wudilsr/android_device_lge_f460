@@ -173,12 +173,13 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
+    libOmxVdecHevc \
     libstagefrighthw \
     libstagefright_omx \
     libqomx_core \
     libqcmediaplayer \
     qcmediaplayer
-    
+
 PRODUCT_BOOT_JARS += qcmediaplayer
 
 # Bluetooth
