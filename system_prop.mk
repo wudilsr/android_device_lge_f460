@@ -77,7 +77,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
    audio.offload.video=false \
    audio.offload.gapless.enabled=false \
    audio.offload.multiple.enabled=false \
-   audio.offload.passthrough=false
+   audio.offload.passthrough=false \
+   av.offload.enable=true \
+   av.streaming.offload.enable=true
 
 # radio
 PRODUCT_PROPERTY_OVERRIDES += \
