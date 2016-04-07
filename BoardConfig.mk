@@ -133,7 +133,7 @@ BOARD_NFC_DEVICE := "/dev/pn547"
 
 # RIL
 BOARD_RIL_CLASS += ../../../device/lge/f460/ril/
-TARGET_RIL_VARIANT := caf
+# TARGET_RIL_VARIANT := caf
 
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
