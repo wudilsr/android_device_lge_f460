@@ -937,13 +937,14 @@
     </path>
 
     <path name="speaker">
+    	 <path name="fb-protection" />
         <ctl name="SLIM RX1 MUX" value="AIF1_PB" />
         <ctl name="SLIM RX6 MUX" value="AIF2_PB" />
         <ctl name="SLIM_0_RX Channels" value="One" />
         <ctl name="RX3 MIX1 INP1" value="RX1" />
         <ctl name="RX3 MIX1 INP2" value="RX6" />
-        <ctl name="RX3 Digital Volume" value="60" />
-        <ctl name="RX4 Digital Volume" value="60" />
+        <ctl name="RX3 Digital Volume" value="63" />
+        <ctl name="RX4 Digital Volume" value="63" />
         <ctl name="RDAC5 MUX" value="DEM3_INV" />
         <ctl name="LINEOUT1 Volume" value="16" />
         <ctl name="LINEOUT3 Volume" value="16" />
@@ -1201,7 +1202,7 @@
         <path name="headset-mic" />
     <!-- 2014-05-07, bj.park, HW, F400 -->
         <ctl name="ADC2 Volume" value="12" />
-        <ctl name="DEC5 Volume" value="60" />
+        <ctl name="DEC5 Volume" value="59" />
     </path>
 
     <path name="voice-headset-mic-fluence">
@@ -1211,6 +1212,7 @@
     </path>
 
     <path name="speaker-and-headphones">
+    	 <path name="fb-protection" />
         <path name="headphones" />
         <ctl name="COMP1 Switch" value="0" />
         <ctl name="HPHL Volume" value="12" />
@@ -1225,6 +1227,8 @@
         <ctl name="LINEOUT1 Volume" value="16" />
         <ctl name="LINEOUT3 Volume" value="16" />
         <ctl name="RX3 HPF cut off" value="MIN_3DB_150Hz" />
+        <ctl name="SPK Amp Volume" value="3" />
+        <ctl name="SPK Amp CLK" value="On" />
     </path>
 
     <path name="speaker-and-headphones-liquid">
@@ -1668,6 +1672,21 @@
         <path name="speaker-dmic-endfire" />
     </path>
 
+    <path name="voice-speaker-dmic-ef-nxp">
+        <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
+        <ctl name="AIF1_CAP Mixer SLIM TX8" value="1" />
+        <ctl name="SLIM TX7 MUX" value="DEC4" />
+        <ctl name="DEC4 MUX" value="ADC3" />
+        <ctl name="SLIM TX8 MUX" value="DEC6" />
+        <ctl name="DEC6 MUX" value="ADC1" />
+        <ctl name="SLIM_0_TX Channels" value="Two" />
+        <ctl name="IIR1 INP1 MUX" value="DEC4" />
+        <ctl name="ADC3 Volume" value="12" />
+        <ctl name="DEC4 Volume" value="60" />
+        <ctl name="ADC1 Volume" value="12" />
+        <ctl name="DEC6 Volume" value="60" />
+    </path>
+    
     <path name="voice-rec-dmic-ef">
         <path name="dmic-endfire" />
     </path>
@@ -1928,6 +1947,7 @@
         <ctl name="LINEOUT1 Volume" value="20" />
         <ctl name="LINEOUT3 Volume" value="20" />
         <ctl name="SPK Amp Volume" value="3" />
+        <ctl name="SPK Amp CLK" value="On" />
     </path>
 
     <path name="voip-speaker-mic">
