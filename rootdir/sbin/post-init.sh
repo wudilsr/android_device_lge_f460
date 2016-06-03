@@ -108,7 +108,7 @@ echo "12288,15360,18432,21504,24576,30720" > /sys/module/lowmemorykiller/paramet
 echo 32 > /sys/module/lowmemorykiller/parameters/cost
 
 # Adaptive LMK
-echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+# echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 echo 53059 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 
 # Process Reclaim
