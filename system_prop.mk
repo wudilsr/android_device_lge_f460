@@ -124,3 +124,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # maintainer
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.mk.maintainer=JZshminer
+  
