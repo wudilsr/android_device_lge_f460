@@ -1,6 +1,8 @@
 LOCAL_PATH := device/lge/f460
 BOARD_VENDOR := lge
 
+TARGET_OTA_ASSERT_DEVICE := tiger6,f460
+
 # Soc platform
 TARGET_BOARD_PLATFORM := apq8084
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno420
