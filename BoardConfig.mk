@@ -148,8 +148,5 @@ WITH_DEXPREOPT := true
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
 
-# Vendor init
-TARGET_INIT_VENDOR_LIB := libinit_msm
-
 # inherit from the proprietary version
 -include vendor/lge/f460/BoardConfigVendor.mk
