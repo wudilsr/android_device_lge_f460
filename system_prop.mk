@@ -67,10 +67,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
    persist.mm.enable.prefetch=true \
    media.stagefright.use-awesome=true \
    ro.qc.sdk.audio.ssr=false \
-   ro.qc.sdk.audio.fluencetype=none \
+   ro.qc.sdk.audio.fluencetype=fluence \
    persist.audio.fluence.voicecall=true \
    persist.audio.fluence.voicerec=false \
    persist.audio.fluence.speaker=true \
+   audio.offload.24bit.enable=1 \
    audio.offload.pcm.16bit.enable=false \
    audio.offload.pcm.24bit.enable=true \
    audio.offload.pcm.enable=true \
@@ -117,6 +118,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.nfc.port=I2C
 
+# vm tune
+PRODUCT_PROPERTY_OVERRIDES += \
+   dalvik.vm.dex2oat-thread_count=4
+
 # maintainer
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.mk.maintainer=JZshminer
+  

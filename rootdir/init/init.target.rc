@@ -296,7 +296,7 @@ service vqttoolservice /system/bin/vqttoolservice
     group system
 
 # TODO: This MUST be disabled not use 'adsprpcd' in LGE platform.
-service adsprpcd /system/bin/adsprpcd
-   class main
-   user media
-   group media
+#service adsprpcd /system/bin/adsprpcd
+ #  class main
+ #  user media
+ #  group media

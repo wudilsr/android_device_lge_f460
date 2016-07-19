@@ -108,7 +108,7 @@ echo "12288,15360,18432,21504,24576,30720" > /sys/module/lowmemorykiller/paramet
 echo 32 > /sys/module/lowmemorykiller/parameters/cost
 
 # Adaptive LMK
-echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
+# echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 echo 53059 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
 
 # Process Reclaim
@@ -212,9 +212,6 @@ echo 256 > /sys/devices/platform/kcal_ctrl.0/kcal_val;
 # Install Busybox
 /sbin/busybox --install -s /sbin
 
-ln -s /res/synapse/uci /sbin/uci
-/sbin/uci
-
 if [ ! -e /data/.selinux_disabled ]; then
 	setenforce 0
 fi;
@@ -253,8 +250,6 @@ fi
 chmod 755 /system/etc/init.d/*
 busybox run-parts /system/etc/init.d/
 
-mount -o remount,rw /;
-mount -o remount,rw, /system;
 
 # stop google service and restart it on boot. this remove high cpu load and ram leak!
 if [ "$(pidof com.google.android.gms | wc -l)" -eq "1" ]; then
@@ -276,12 +271,13 @@ echo 2000 > /sys/module/bq24296_charger/parameters/iusb_control;
 
 # sharpe control
 chmod 0755 /sbin/sharpening
-if [ -e /data/sp_cm ];then
-	chmod 0755 /data/sp_cm;
-	input keyevent 26;
-	sleep 1;
-	input keyevent 26;
-	echo `cat /data/sp_cm` > /sys/devices/virtual/graphics/fb0/lge_sharpening_level;
+if [ -e /data/.jz_sy/sharpening ] && [ ! -e /bootC ];then
+    chmod 0755 /data/.jz_sy/sharpening;
+    input keyevent 26;
+    sleep 1;
+    input keyevent 26;
+    echo `cat /data/.jz_sy/sharpening` > /sys/devices/virtual/graphics/fb0/lge_sharpening_level;
+    touch /bootC;
 fi
 # sharpe control
 
