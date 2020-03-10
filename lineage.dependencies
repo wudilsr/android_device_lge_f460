@@ -4,8 +4,8 @@
     "target_path": "vendor/lge/f460"
   },
   {
-    "repository": "android_kernel_lge_f460",
-    "target_path": "kernel/lge/f460"
+    "repository": "android_kernel_lge_apq8084",
+    "target_path": "kernel/lge/apq8084"
   },
   {
     "repository": "android_device_qcom_common",

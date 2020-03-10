@@ -25,10 +25,8 @@ TARGET_NO_BOOTLOADER := true
 # Kernel
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
-TARGET_KERNEL_CONFIG := JZ_f460_defconfig
-TARGET_KERNEL_SOURCE := kernel/lge/f460
-# KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
-# KERNEL_TOOLCHAIN :=
+TARGET_KERNEL_CONFIG := LineageOS_f460_defconfig
+TARGET_KERNEL_SOURCE := kernel/lge/apq8084
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE :=  4096
@@ -85,8 +83,8 @@ COMMON_GLOBAL_CFLAGS += \
     -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' \
     -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
 
-# MKHW
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/mkhw/
+# CMHW
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap_to_wake"
 
 # Disable HW based full disk encryption

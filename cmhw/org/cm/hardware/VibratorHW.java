@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2013 The CyanogenMod Project
- * Copyright (C) 2013 The MoKee Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.mokee.hardware;
+package org.cyanogenmod.hardware;
 
-import org.mokee.hardware.util.FileUtils;
+import org.cyanogenmod.hardware.util.FileUtils;
 
 public class VibratorHW {
 
