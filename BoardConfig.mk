@@ -71,9 +71,8 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 
 # off charge for lg kernel
 BOARD_HEALTHD_CUSTOM_CHARGER_RES := $(LOCAL_PATH)/charger/images
-COMMON_GLOBAL_CFLAGS += \
-    -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' \
-    -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
+BOARD_CHARGING_CMDLINE_NAME := "androidboot.mode"
+BOARD_CHARGING_CMDLINE_VALUE := "chargerlogo"
 
 # CMHW
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
@@ -108,11 +107,6 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
-
-# Offmode Charging
-COMMON_GLOBAL_CFLAGS += \
-    -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' \
-    -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
 
 # Power
 TARGET_POWERHAL_VARIANT := qcom
