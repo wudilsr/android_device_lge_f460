@@ -128,8 +128,8 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
 
-# Enable dex-preoptimization to speed up first boot sequence
-WITH_DEXPREOPT := true
+# Disable dex-preopt of prebuilts to save space.
+DONT_DEXPREOPT_PREBUILTS := true
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
