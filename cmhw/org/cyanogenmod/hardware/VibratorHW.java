@@ -39,7 +39,7 @@ public class VibratorHW {
         return Integer.parseInt(FileUtils.readOneLine(NFORCE_PATH));
     }
     public static int getDefaultIntensity()  {
-        return 65;
+        return 127;
     }
     public static boolean setIntensity(int intensity)  {
         return FileUtils.writeLine(NFORCE_PATH, String.valueOf(intensity));

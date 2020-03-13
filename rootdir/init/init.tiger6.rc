@@ -1,5 +1,6 @@
 # This file will be installed as /init.{ro.hardware}.rc
 import /init.qcom.rc
+import /init.tiger6.power.rc
 
 # to override init.qcom.rc and init.target.rc
 import /init.lge.usb.rc

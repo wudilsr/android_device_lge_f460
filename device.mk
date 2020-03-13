@@ -52,9 +52,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init/init.tiger6_core.rc:root/init.tiger6_core.rc \
     $(LOCAL_PATH)/rootdir/init/init.tiger6_product.rc:root/init.tiger6_product.rc \
     $(LOCAL_PATH)/rootdir/init/init.tiger6.rc:root/init.tiger6.rc \
+    $(LOCAL_PATH)/rootdir/init/init.tiger6.power.rc:root/init.tiger6.power.rc \
     $(LOCAL_PATH)/rootdir/init/ueventd.tiger6.rc:root/ueventd.tiger6.rc \
-    $(LOCAL_PATH)/rootdir/sbin/sharpening:root/sbin/sharpening \
-    $(LOCAL_PATH)/rootdir/sbin/post-init.sh:root/sbin/post-init.sh
+    $(LOCAL_PATH)/rootdir/sbin/sharpening:root/sbin/sharpening
 
 # WiFi cal NVRAM file
 PRODUCT_COPY_FILES += \
