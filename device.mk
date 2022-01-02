@@ -20,7 +20,9 @@ LOCAL_PATH := device/lge/f460
 $(call inherit-product-if-exists, vendor/lge/f460/device-vendor.mk)
 
 # Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay \
+    $(LOCAL_PATH)/overlay-lineage
 
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
