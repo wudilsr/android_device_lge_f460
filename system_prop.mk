@@ -34,6 +34,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # mdp
 PRODUCT_PROPERTY_OVERRIDES += \
+   debug.hwui.use_buffer_age=false \
    debug.sf.hw=0 \
    debug.egl.hw=0 \
    persist.hwc.mdpcomp.enable=true \
