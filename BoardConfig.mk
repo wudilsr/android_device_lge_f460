@@ -170,5 +170,8 @@ DONT_DEXPREOPT_PREBUILTS := true
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+# Shipping API level (for CTS backward compatibility)
+PRODUCT_SHIPPING_API_LEVEL := 19
+
 # inherit from the proprietary version
 -include vendor/lge/f460/BoardConfigVendor.mk
