@@ -227,7 +227,10 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    android.hardware.camera.provider@2.4-impl-legacy \
+    camera.device@1.0-impl-legacy \
+    Snap \
+    camera.apq8084
 
 # FM Radio
 PRODUCT_PACKAGES += \
