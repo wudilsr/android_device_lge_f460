@@ -24,5 +24,7 @@
 
 #define BTM_WBS_INCLUDED TRUE /* Enable WBS */
 #define BTIF_HF_WBS_PREFERRED TRUE /* Use WBS */
+#define BLUETOOTH_QTI_SW          TRUE
+#define BT_CLEAN_TURN_ON_DISABLED TRUE
 
 #endif
