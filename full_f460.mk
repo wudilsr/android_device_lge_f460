@@ -1,5 +1,5 @@
 #
-# Copyright 2014 The CyanogenMod Project
+# Copyright 2016 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
 #
 
 # Inherit from those products. Most specific first.
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 $(call inherit-product, device/lge/f460/device.mk)

@@ -1,5 +1,5 @@
 #
-# Copyright 2014 The CyanogenMod Project
+# Copyright 2016 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 
 
 # Inherit some common LineageOS stuff.
+
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit from those products. Most specific first.
