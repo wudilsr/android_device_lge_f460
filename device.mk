@@ -115,13 +115,23 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.memtrack@1.0-impl \
     copybit.apq8084 \
     gralloc.apq8084 \
     hwcomposer.apq8084 \
     memtrack.apq8084 \
+
+# DRM
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl
     
 # Audio
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
     audiod \
     audio.a2dp.default \
     audio.primary.apq8084 \
@@ -227,16 +237,24 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
     
+# Location
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl \
+    gps.apq8084
+    
 # Keymaster
 PRODUCT_PACKAGES += \
-    keystore.apq8084
+    keystore.apq8084 \
+    android.hardware.keymaster@3.0-impl
 
 # Lights
 PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
     lights.apq8084
 
 # NFC
 PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.0-impl \
     com.android.nfc_extras \
     NfcNci \
     nfc_nci.apq8084 \
@@ -250,10 +268,12 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-impl \
     power.apq8084
 
 # Wifi
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
     libwpa_client \
     hostapd \
     hostapd_cli \
@@ -286,7 +306,19 @@ PRODUCT_BOOT_JARS += \
 # Radio
 PRODUCT_PACKAGES += \
     libxml2
+    
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl
 
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+    
 # Low latency audio buffer size in frames
 PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.period_size=192
