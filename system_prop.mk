@@ -23,7 +23,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
    persist.rild.nitz_short_ons_1="" \
    persist.rild.nitz_short_ons_2="" \
    persist.rild.nitz_short_ons_3="" \
-   ril.subscription.types=NV,RUIM \
    DEVICE_PROVISIONED=1 \
    persist.radio.apm_mdm_not_pwdn=1 \
    ro.telephony.default_network=9 \
@@ -95,7 +94,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
    bt.max.hfpclient.connections=1 \
-   qcom.bluetooth.soc=rome
+   qcom.bluetooth.soc=smd
 
 # sdcard
 PRODUCT_PROPERTY_OVERRIDES += \
