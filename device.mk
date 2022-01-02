@@ -16,8 +16,8 @@
 # inherit from the proprietary version
 
 LOCAL_PATH := device/lge/f460
+
 $(call inherit-product-if-exists, vendor/lge/f460/device-vendor.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
