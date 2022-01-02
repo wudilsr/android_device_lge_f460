@@ -161,9 +161,6 @@ BOARD_USES_QCOM_HARDWARE := true
 # media
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
-# Time services
-BOARD_USES_QC_TIME_SERVICES := true
-
 # Disable dex-preopt of prebuilts to save space.
 DONT_DEXPREOPT_PREBUILTS := true
 
