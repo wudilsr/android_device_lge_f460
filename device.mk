@@ -216,6 +216,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Snap
 
+# FM Radio
+PRODUCT_PACKAGES += \
+    FMRadio \
+    libfmjni
+    
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     e2fsck \
