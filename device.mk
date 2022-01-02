@@ -315,7 +315,12 @@ PRODUCT_BOOT_JARS += \
 # Radio
 PRODUCT_PACKAGES += \
     libxml2
-    
+
+# Seccomp
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/seccomp/mediacodec.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_PATH)/seccomp/mediaextractor.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+        
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl
