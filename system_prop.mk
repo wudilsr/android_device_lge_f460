@@ -97,6 +97,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
    bt.max.hfpclient.connections=1 \
    qcom.bluetooth.soc=smd
 
+# Camera
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera2.portability.force_api=1
+
 # sdcard
 PRODUCT_PROPERTY_OVERRIDES += \
    persist.fuse_sdcard=true
