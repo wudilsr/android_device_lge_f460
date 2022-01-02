@@ -56,6 +56,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $
 TARGET_REQUIRES_BUMP := true
 LZMA_RAMDISK_TARGETS := recovery
 TARGET_USES_MKE2FS := true
+TARGET_EXFAT_DRIVER := sdfat
 
 # Partitions
 TARGET_USERIMAGES_USE_F2FS := true                                                                        
