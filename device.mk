@@ -42,8 +42,6 @@ TARGET_SCREEN_WIDTH := 1440
 
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
-
 #init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init/fstab.tiger6:root/fstab.tiger6 \
