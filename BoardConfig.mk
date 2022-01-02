@@ -91,8 +91,8 @@ BOARD_HEALTHD_CUSTOM_CHARGER_RES := $(LOCAL_PATH)/charger/images
 BOARD_CHARGING_CMDLINE_NAME := "androidboot.mode"
 BOARD_CHARGING_CMDLINE_VALUE := "chargerlogo"
 
-# CMHW
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
+# lineagehw
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw/
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/lge_touch/tap_to_wake"
 
 # Disable HW based full disk encryption
