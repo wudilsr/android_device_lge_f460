@@ -54,6 +54,7 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 us
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 TARGET_REQUIRES_BUMP := true
+LZMA_RAMDISK_TARGETS := recovery
 
 # Partitions
 TARGET_USERIMAGES_USE_F2FS := true                                                                        
