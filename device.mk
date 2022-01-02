@@ -217,7 +217,10 @@ PRODUCT_BOOT_JARS += qcmediaplayer
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-   bdAddrLoader 
+    android.hardware.bluetooth@1.0-impl \
+    libbt-vendor \
+    hwaddrs \
+    bdAddrLoader 
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
