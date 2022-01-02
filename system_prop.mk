@@ -117,11 +117,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
    ro.nfc.port=I2C
 
+# Storage
+PRODUCT_PROPERTY_OVERRIDES += \
+   ro.sys.sdcardfs=true
+    
 # vm tune
 PRODUCT_PROPERTY_OVERRIDES += \
    dalvik.vm.dex2oat-thread_count=4
-
-# maintainer
-PRODUCT_PROPERTY_OVERRIDES += \
-  ro.mk.maintainer=JZshminer
   
