@@ -169,12 +169,12 @@ PRODUCT_COPY_FILES += \
 
 # JZ note: enable it until we find usable thermal-engine
 PRODUCT_COPY_FILES += \
-   $(LOCAL_PATH)/configs/thermal-engine-8084.conf:system/etc/thermal-engine-8084.conf \
-   $(LOCAL_PATH)/configs/thermal-engine-default.conf:system/etc/thermal-engine-default.conf
+   $(LOCAL_PATH)/configs/thermal-engine-8084.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-8084.conf \
+   $(LOCAL_PATH)/configs/thermal-engine-default.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine-default.conf
       
 # IRSC
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+    $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # misc configuration files
 PRODUCT_COPY_FILES += \
