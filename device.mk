@@ -221,7 +221,7 @@ PRODUCT_PACKAGES += \
     libqcmediaplayer \
     qcmediaplayer
 
-PRODUCT_BOOT_JARS += qcmediaplayer
+#PRODUCT_BOOT_JARS += qcmediaplayer
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -314,8 +314,8 @@ PRODUCT_PACKAGES += ip-up-vpn
 # tcmiface for tcm support
 PRODUCT_PACKAGES += tcmiface
 
-PRODUCT_BOOT_JARS += \
-    tcmiface
+#PRODUCT_BOOT_JARS += \
+#    tcmiface
     
 # Radio
 PRODUCT_PACKAGES += \
