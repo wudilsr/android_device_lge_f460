@@ -154,7 +154,7 @@ BOARD_NFC_DEVICE := "/dev/pn547"
 BOARD_NFC_HAL_SUFFIX := apq8084
 
 # RIL
-BOARD_RIL_CLASS += ../../../device/lge/f460/ril/
+BOARD_RIL_CLASS += $(LOCAL_PATH)/ril/
 # TARGET_RIL_VARIANT := caf
 
 # Qualcomm support

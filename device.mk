@@ -123,7 +123,7 @@ PRODUCT_PACKAGES += \
     copybit.apq8084 \
     gralloc.apq8084 \
     hwcomposer.apq8084 \
-    memtrack.apq8084 \
+    memtrack.apq8084
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -186,7 +186,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/flp.conf:system/etc/flp.conf \
     $(LOCAL_PATH)/configs/izat.conf:system/etc/izat.conf \
-    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
     
 # Media
 PRODUCT_COPY_FILES += \
