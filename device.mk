@@ -255,11 +255,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl \
     gps.apq8084
-    
-# Keymaster
-PRODUCT_PACKAGES += \
-    keystore.apq8084 \
-    android.hardware.keymaster@3.0-impl
 
 # Lights
 PRODUCT_PACKAGES += \
