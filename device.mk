@@ -239,11 +239,6 @@ PRODUCT_PACKAGES += \
     camera.device@1.0-impl-legacy \
     Snap \
     camera.msm8084
-
-# FM Radio
-PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
     
 # Filesystem management tools
 PRODUCT_PACKAGES += \
