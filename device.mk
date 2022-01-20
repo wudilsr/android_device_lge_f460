@@ -120,10 +120,10 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@2.0-impl \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.memtrack@1.0-impl \
-    copybit.apq8084 \
-    gralloc.apq8084 \
-    hwcomposer.apq8084 \
-    memtrack.apq8084
+    copybit.msm8084 \
+    gralloc.msm8084 \
+    hwcomposer.msm8084 \
+    memtrack.msm8084
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -135,10 +135,10 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
     audiod \
     audio.a2dp.default \
-    audio.primary.apq8084 \
+    audio.primary.msm8084 \
     audio.r_submix.default \
     audio.usb.default \
-    audio_policy.apq8084 \
+    audio_policy.msm8084 \
     tinymix \
     tinyloop \
     tinyplay \
@@ -238,7 +238,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl-legacy \
     camera.device@1.0-impl-legacy \
     Snap \
-    camera.apq8084
+    camera.msm8084
 
 # FM Radio
 PRODUCT_PACKAGES += \
@@ -254,19 +254,19 @@ PRODUCT_PACKAGES += \
 # Location
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl \
-    gps.apq8084
+    gps.msm8084
 
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
-    lights.apq8084
+    lights.msm8084
 
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl \
     com.android.nfc_extras \
     NfcNci \
-    nfc_nci.apq8084 \
+    nfc_nci.msm8084 \
     Tag
 
 # NFC access control + feature files + configuration
@@ -278,7 +278,7 @@ PRODUCT_COPY_FILES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
-    power.apq8084
+    power.msm8084
 
 # Wifi
 PRODUCT_PACKAGES += \

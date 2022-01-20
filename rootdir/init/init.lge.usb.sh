@@ -109,7 +109,7 @@ case "$target" in
 # Select USB BAM - 2.0 or 3.0
         echo ssusb > /sys/bus/platform/devices/usb_bam/enable
     ;;
-    "apq8084")
+    "msm8084")
         if [ "$baseband" == "apq" ]; then
             echo "msm_hsic_host" > /sys/bus/platform/drivers/xhci_msm_hsic/unbind
         fi

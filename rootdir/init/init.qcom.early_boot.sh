@@ -148,7 +148,7 @@ case "$platform" in
                 ;;
         esac
         ;;
-    "apq8084")
+    "msm8084")
         case "$soc_hwplatform" in
             "Liquid")
                 setprop ro.sf.lcd_density 320
